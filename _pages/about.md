@@ -9,7 +9,7 @@ profile:
   image: me.PNG
   image_circular: false # crops the image to make it circular
   more_info: > 
-    <p>hyzhengling@whu.edu.cn</p>
+    <p style="font-size: 0.75em; color: gray;">Photo credit: my mother, at Victoria Harbour. Gypsy Style reimagined by ChatGPT.</p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
