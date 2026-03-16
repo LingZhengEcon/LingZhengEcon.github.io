@@ -30,3 +30,5 @@ Hi! I am a senior undergraduate student at Wuhan University, majoring in Philoso
 
 <span style="color: purple;">Research Interests</span>：Market Design, Game Theory and Behavior Economics
 
+You can find my detailed CV below.
+
