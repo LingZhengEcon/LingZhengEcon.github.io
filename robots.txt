@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://LingZhengEcon.github.io/sitemap.xml
+Sitemap: https://lingzheng.github.io/sitemap.xml
