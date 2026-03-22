@@ -9,23 +9,19 @@ nav_order: 3
 <div class="blog-categories">
   <a href="/blog/tag/philosophy" class="blog-card">
     <div class="card-icon">🧠</div>
-    <div class="card-title">哲学</div>
     <div class="card-desc">Philosophy</div>
   </a>
   <a href="/blog/tag/poetry" class="blog-card">
     <div class="card-icon">🌿</div>
-    <div class="card-title">诗歌</div>
     <div class="card-desc">Poetry</div>
   </a>
   <a href="/blog/tag/academic" class="blog-card">
     <div class="card-icon">📐</div>
-    <div class="card-title">学术观点</div>
-    <div class="card-desc">Academic Views</div>
+    <div class="card-desc">Review</div>
   </a>
   <a href="/blog/tag/life" class="blog-card">
     <div class="card-icon">☕</div>
-    <div class="card-title">生活随笔</div>
-    <div class="card-desc">Essays on Life</div>
+    <div class="card-desc">Essays</div>
   </a>
 </div>
 
