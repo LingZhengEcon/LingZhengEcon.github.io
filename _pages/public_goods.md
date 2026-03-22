@@ -26,12 +26,17 @@ A curated collection of resources I find useful. Freely shared.
 ## Lecture Notes & Courses
 
 #### My Notes
+
 - [The Art of Economics Design](https://www.overleaf.com/read/tbnhdxcwxqzp#f2e1f3) - Covering matching and mechanism design, imcomplete
 
 #### External Lecture Notes
+
+#### External Lecture Notes
+
 - [Applied Empirical Methods](https://github.com/paulgp/applied-methods-phd) — Paul Goldsmith-Pinkham
 - [Grad Econometrics Slides](https://about.peterhull.net/metrix) — Peter Hull
-- [Matching and Market Design](https://www.xiangsun.org/teaching) - Xiang Sun
+- [Matching and Market Design](https://www.xiangsun.org/teaching) — Xiang Sun
+
 ---
 
 
