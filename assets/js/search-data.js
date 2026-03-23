@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-相拥的一天",
+        },{id: "post-无题",
+        
+          title: "无题",
+        
+        description: "30/11/2025",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/%E8%A1%A3%E6%9F%9C/";
+          
+        },
+      },{id: "post-相拥的一天",
         
           title: "相拥的一天",
         
