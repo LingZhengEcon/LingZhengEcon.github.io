@@ -26,7 +26,7 @@ nav_order: 2
 <li>
   <div class="title">Constraint-driven Priority Adjustment Mechanism</div>
   <div class="author">Ling Zheng</div>
-  <div class="note">My Bachelor Thesis. What happen </div>
+  <div class="note">What happens when priorities are endogenous to choices? （My Undergrad Thesis）</div>
 </li>
 </ol>
 </div>
