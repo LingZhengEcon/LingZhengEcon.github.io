@@ -38,8 +38,9 @@
 @use "font-awesome/solid";
 @use "font-awesome/regular";
 
-.author em {
-   font-weight: bold;
-   text-decoration: none;
-   font-style: normal;
- }
+.publications .author em,
+.bibliography .author em {
+  font-weight: bold !important;
+  text-decoration: none !important;
+  font-style: normal !important;
+}
