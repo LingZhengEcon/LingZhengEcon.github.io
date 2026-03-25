@@ -63,3 +63,19 @@ nav_order: 4
   </div>
 
 </div>
+
+<script>
+document.querySelectorAll('[data-bs-toggle="pill"]').forEach(function(button) {
+  button.addEventListener('click', function() {
+    document.querySelectorAll('[data-bs-toggle="pill"]').forEach(function(b) {
+      b.classList.remove('active');
+    });
+    document.querySelectorAll('.tab-pane').forEach(function(p) {
+      p.classList.remove('show', 'active');
+    });
+    this.classList.add('active');
+    var target = document.querySelector(this.getAttribute('data-bs-target'));
+    target.classList.add('show', 'active');
+  });
+});
+</script>
