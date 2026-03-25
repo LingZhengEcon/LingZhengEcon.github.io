@@ -6,53 +6,60 @@ nav: true
 nav_order: 4
 ---
 
-<div class="row">
-<!-- 左侧导航栏 -->
-<div class="col-md-3">
-<nav id="toc" class="sticky-top pt-4" style="top: 80px;">
-  <ul class="nav flex-column">
-    <li class="nav-item"><a class="nav-link" href="#ai-workflow">My AI Workflow</a></li>
-    <li class="nav-item"><a class="nav-link" href="#scholars">Scholars</a></li>
-    <li class="nav-item"><a class="nav-link" href="#lecture-notes">Lecture Notes & Courses</a></li>
-    <li class="nav-item"><a class="nav-link" href="#phd-resources">Econ PhD Resources</a></li>
-  </ul>
-</nav>
-</div>
-
-<!-- 右侧内容 -->
-<div class="col-md-9" data-bs-spy="scroll" data-bs-target="#toc" data-bs-offset="100">
-
 <p class="text-muted">A curated collection of resources I find useful. Freely shared.</p>
 
-<h2 id="ai-workflow">My AI Workflow</h2>
-*Coming soon.*
+<div class="row mt-4">
 
----
+  <!-- 左侧导航 -->
+  <div class="col-md-3">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
+      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#ai-workflow" type="button">My AI Workflow</button>
+      <button class="nav-link" data-bs-toggle="pill" data-bs-target="#scholars" type="button">Scholars</button>
+      <button class="nav-link" data-bs-toggle="pill" data-bs-target="#lecture-notes" type="button">Lecture Notes & Courses</button>
+      <button class="nav-link" data-bs-toggle="pill" data-bs-target="#phd-resources" type="button">Econ PhD Resources</button>
+    </div>
+  </div>
 
-<h2 id="scholars">Scholars</h2>
+  <!-- 右侧内容 -->
+  <div class="col-md-9">
+    <div class="tab-content">
 
-- [Al Roth](https://web.stanford.edu/~alroth/) — Stanford
-- [Parag Pathak](https://economics.mit.edu/people/faculty/parag-pathak) — MIT
-- [Fuhito Kojima](https://sites.google.com/site/fuhitokojimaeconomics/Fuhito-Kojima) — Tokyo U
-- [Federico Echenique](https://eml.berkeley.edu/~fechenique/) — UC Berkeley
+      <div class="tab-pane fade show active" id="ai-workflow">
+        <h4>My AI Workflow</h4>
+        <p><em>Coming soon.</em></p>
+      </div>
 
----
+      <div class="tab-pane fade" id="scholars">
+        <h4>Scholars</h4>
+        <ul>
+          <li><a href="https://web.stanford.edu/~alroth/">Al Roth</a> — Stanford</li>
+          <li><a href="https://economics.mit.edu/people/faculty/parag-pathak">Parag Pathak</a> — MIT</li>
+          <li><a href="https://sites.google.com/site/fuhitokojimaeconomics/Fuhito-Kojima">Fuhito Kojima</a> — Tokyo U</li>
+          <li><a href="https://eml.berkeley.edu/~fechenique/">Federico Echenique</a> — UC Berkeley</li>
+        </ul>
+      </div>
 
-<h2 id="lecture-notes">Lecture Notes & Courses</h2>
+      <div class="tab-pane fade" id="lecture-notes">
+        <h4>My Notes</h4>
+        <ul>
+          <li><a href="https://www.overleaf.com/read/tbnhdxcwxqzp#f2e1f3">The Art of Economics Design</a> — Covering matching and mechanism design, incomplete</li>
+        </ul>
+        <h4>External Lecture Notes</h4>
+        <ul>
+          <li><a href="https://github.com/paulgp/applied-methods-phd">Applied Empirical Methods</a> — Paul Goldsmith-Pinkham</li>
+          <li><a href="https://about.peterhull.net/metrix">Grad Econometrics Slides</a> — Peter Hull</li>
+          <li><a href="https://www.xiangsun.org/teaching">Matching and Market Design</a> — Xiang Sun</li>
+        </ul>
+      </div>
 
-#### My Notes
-- [The Art of Economics Design](https://www.overleaf.com/read/tbnhdxcwxqzp#f2e1f3) — Covering matching and mechanism design, incomplete
+      <div class="tab-pane fade" id="phd-resources">
+        <h4>Econ PhD Resources</h4>
+        <ul>
+          <li><a href="https://docs.google.com/spreadsheets/d/1YPBecm373ckzLazPh4A58h9Gu4glfKtCl1VtS-9J0D4/edit?usp=drivesdk">China Econ Job Market</a></li>
+        </ul>
+      </div>
 
-#### External Lecture Notes
-- [Applied Empirical Methods](https://github.com/paulgp/applied-methods-phd) — Paul Goldsmith-Pinkham
-- [Grad Econometrics Slides](https://about.peterhull.net/metrix) — Peter Hull
-- [Matching and Market Design](https://www.xiangsun.org/teaching) — Xiang Sun
+    </div>
+  </div>
 
----
-
-<h2 id="phd-resources">Econ PhD Resources</h2>
-
-- [China Econ Job Market](https://docs.google.com/spreadsheets/d/1YPBecm373ckzLazPh4A58h9Gu4glfKtCl1VtS-9J0D4/edit?usp=drivesdk)
-
-</div>
 </div>

@@ -45,15 +45,3 @@
   font-style: normal !important;
 }
 
-#toc .nav-link {
-  color: #555;
-  padding: 0.25rem 0;
-  font-size: 0.9rem;
-  &:hover {
-    color: #000;
-  }
-  &.active {
-    color: #000;
-    font-weight: bold;
-  }
-}
