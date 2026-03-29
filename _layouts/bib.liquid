@@ -198,6 +198,9 @@
       {% if entry.abstract %}
         <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
       {% endif %}
+      {% if entry.timeline %}
+      <a class="timeline-toggle btn btn-sm z-depth-0" role="button">Timeline</a>
+      {% endif %}
       {% if entry.doi %}
         <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
       {% endif %}
@@ -373,8 +376,22 @@
     {% if entry.abstract %}
       <!-- Hidden abstract block -->
       <div class="abstract hidden">
-        <p>{{ entry.abstract }}</p>
+        <p> entry.abstract </p>
       </div>
+    {% endif %}
+
+    {% if entry.timeline %}
+      <!-- Hidden timeline block -->
+      <div class="timeline-box hidden">
+    {% assign events = entry.timeline | split: " | " %}
+    {% for event in events %}
+    {% assign parts = event | split: ": " %}
+      <div class="timeline-item">
+        <span class="timeline-date"> parts[0] | strip </span>
+        <span class="timeline-text"> parts[1] | strip </span>
+      </div>
+    {% endfor %}
+    </div>
     {% endif %}
 
     {% if entry.bibtex_show %}
@@ -394,3 +411,10 @@
     {% endif %}
   </div>
 </div>
+
+document.querySelectorAll('.timeline-toggle').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var box = this.closest('.bib-entry, li').querySelector('.timeline-box');
+    if (box) box.classList.toggle('hidden');
+  });
+});
