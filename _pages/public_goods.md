@@ -26,7 +26,10 @@ nav_order: 4
 
       <div class="tab-pane fade show active" id="ai-workflow">
         <h4>My AI Workflow</h4>
-        <p><em>Coming soon.</em></p>
+        <p><em>I thank my mentor for sponsoring me monthly Chatgpt Plus!</em></p>
+        <ul>
+         <li>Claude is currently inaccessible or unstable in mainland China. I strongly recommend <strong>Notion Business</strong> as an alternative — it offers unlimited access to Claude claude-opus-4-6 and integrates seamlessly with your Notion workspace.</li>
+        <ul>
       </div>
 
       <div class="tab-pane fade" id="scholars">
