@@ -385,7 +385,7 @@
   <div class="timeline-box hidden">
     {% assign events = entry.timeline | split: " | " %}
     {% for event in events %}
-      {% assign parts = event | split: ": " %}
+      {% assign parts = event | split: " -- " %}
       <div class="timeline-item">
         <span class="timeline-date"> {{parts[0] | strip}} </span>
         <span class="timeline-text"> {{parts[1] | strip}} </span>
