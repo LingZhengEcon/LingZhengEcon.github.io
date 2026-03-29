@@ -376,7 +376,7 @@
     {% if entry.abstract %}
   <!-- Hidden abstract block -->
   <div class="abstract hidden">
-    <p> entry.abstract </p>
+    <p> {{entry.abstract}} </p>
   </div>
 {% endif %}
 
@@ -387,8 +387,8 @@
     {% for event in events %}
       {% assign parts = event | split: ": " %}
       <div class="timeline-item">
-        <span class="timeline-date"> parts[0] | strip </span>
-        <span class="timeline-text"> parts[1] | strip </span>
+        <span class="timeline-date"> {{parts[0] | strip}} </span>
+        <span class="timeline-text"> {{parts[1] | strip}} </span>
       </div>
     {% endfor %}
   </div>
