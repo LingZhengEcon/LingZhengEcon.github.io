@@ -374,25 +374,25 @@
     {% endif %}
 
     {% if entry.abstract %}
-      <!-- Hidden abstract block -->
-      <div class="abstract hidden">
-        <p> entry.abstract </p>
-      </div>
-    {% endif %}
+  <!-- Hidden abstract block -->
+  <div class="abstract hidden">
+    <p> entry.abstract </p>
+  </div>
+{% endif %}
 
-    {% if entry.timeline %}
-      <!-- Hidden timeline block -->
-      <div class="timeline-box hidden">
+{% if entry.timeline %}
+  <!-- Hidden timeline block -->
+  <div class="timeline-box hidden">
     {% assign events = entry.timeline | split: " | " %}
     {% for event in events %}
-    {% assign parts = event | split: ": " %}
+      {% assign parts = event | split: ": " %}
       <div class="timeline-item">
         <span class="timeline-date"> parts[0] | strip </span>
         <span class="timeline-text"> parts[1] | strip </span>
       </div>
     {% endfor %}
-    </div>
-    {% endif %}
+  </div>
+{% endif %}
 
     {% if entry.bibtex_show %}
       <!-- Hidden bibtex block -->
