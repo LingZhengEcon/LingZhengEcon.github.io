@@ -26,7 +26,7 @@ latest_posts:
 ---
 
 
-Hi! I am a senior undergraduate student at Wuhan University, majoring in Philosophy, Politics, and Economics. Over the past two years, I have been studying market design under the supervision of [Prof. Jingsheng Yu](https://ems.whu.edu.cn/info/1683/24484.htm). I also work as a research assistant for [Prof. Yuxiao Hu](https://www.yuxiaohu.com/) (SJTU) and [Prof. Guojun He](https://www.guojunhe.com/) (HKU). Outside of research, I enjoy reading and writing poetry, and going for runs.
+Hi! I am a senior undergraduate student at Wuhan University, majoring in Philosophy, Politics, and Economics. Over the past two years, I have been studying market design under the supervision of [Prof. Jingsheng Yu](https://ems.whu.edu.cn/info/1683/24484.htm). I also work as a research assistant for [Prof. Yuxiao Hu](https://www.yuxiaohu.com/) (SJTU) . Outside of research, I enjoy reading and writing poetry, and going for runs.
 
 <span style="color: purple;">Research Interests</span>：Market Design, Game Theory and Behavior Economics
 
