@@ -13,9 +13,10 @@ nav_order: 4
   <!-- 左侧导航 -->
   <div class="col-md-3">
     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
-      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#ai-workflow" type="button">My AI Workflow</button>
+      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#ai-workflow" type="button">AI Tools & Workflow</button>
       <button class="nav-link" data-bs-toggle="pill" data-bs-target="#scholars" type="button">Scholars</button>
-      <button class="nav-link" data-bs-toggle="pill" data-bs-target="#lecture-notes" type="button">Lecture Notes & Courses</button>
+      <button class="nav-link" data-bs-toggle="pill" data-bs-target="#lecture-notes" type="button">Lecture Notes</button>
+      <button class="nav-link" data-bs-toggle="pill" data-bs-target="#template" type="button">Latex Template</button>
       <button class="nav-link" data-bs-toggle="pill" data-bs-target="#phd-resources" type="button">Econ PhD Resources</button>
     </div>
   </div>
@@ -28,12 +29,12 @@ nav_order: 4
         <h4>My AI Workflow</h4>
         <p><em>I thank my mentor for sponsoring me monthly Chatgpt Plus!</em></p>
         <ul>
-         <li>Claude is currently inaccessible or unstable in mainland China. I strongly recommend <strong>Notion Business</strong> as an alternative — it offers unlimited access to Claude claude-opus-4-6 and integrates seamlessly with your Notion workspace.</li>
+         <li>Claude is currently inaccessible or unstable in mainland China. I strongly recommend <strong>Notion Business</strong> as an alternative — it offers unlimited access to Claude Opus-4-6 and integrates seamlessly with your Notion workspace.</li>
         </ul>
       </div>
 
       <div class="tab-pane fade" id="scholars">
-        <h4>Scholars</h4>
+        <h4>Market Design</h4>
         <ul>
           <li><a href="https://web.stanford.edu/~alroth/">Al Roth</a> — Stanford</li>
           <li><a href="https://economics.mit.edu/people/faculty/parag-pathak">Parag Pathak</a> — MIT</li>
@@ -55,8 +56,15 @@ nav_order: 4
         </ul>
       </div>
 
+      <div class="tab-pane fade" id="template">
+        <ul>
+          <li>My lecture notes template</li>
+          <li>My beamer template</li>
+          <li><a href="https://hargaden.com/enda/nokia-3210-beamer-theme/">A interesting and cool Nokia-style beamer template</a> </li>
+        </ul>
+      </div>
+
       <div class="tab-pane fade" id="phd-resources">
-        <h4>Econ PhD Resources</h4>
         <ul>
           <li><a href="https://docs.google.com/spreadsheets/d/1YPBecm373ckzLazPh4A58h9Gu4glfKtCl1VtS-9J0D4/edit?usp=drivesdk">China Econ Job Market</a></li>
         </ul>
