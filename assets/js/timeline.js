@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".timeline-toggle").forEach(function(e){e.addEventListener("click",function(){var e=this.closest(".bib-entry, li").querySelector(".timeline-box");e&&e.classList.toggle("hidden")})})});
