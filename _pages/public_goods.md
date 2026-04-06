@@ -30,6 +30,8 @@ nav_order: 4
         <p><em>I thank my mentor for sponsoring me monthly Chatgpt Plus!</em></p>
         <ul>
          <li>Claude is currently inaccessible or unstable in mainland China. I strongly recommend <strong>Notion Business</strong> as an alternative — it offers unlimited access to Claude Opus-4-6 and integrates seamlessly with your Notion workspace.</li>
+         <li>I have developed a <a href="/theory_paper_skills/" target="_blank">Theory Paper Reading</a> workflow that walks through a paper from cover to cover and produces a structured LaTeX document. I have tested it on <a href="assets/pdf/bayesian_persuasion_notes.pdf" target="_blank">Kamenica and Gentzkow (2011)</a> and <a href="assets/pdf/hatfield_milgrom_notes.pdf" target="_blank">Hatfield and Milgrom (2005)</a>.
+        </li>
         </ul>
       </div>
 
@@ -60,7 +62,8 @@ nav_order: 4
         <ul>
           <li>My lecture notes template</li>
           <li>My beamer template</li>
-          <li><a href="https://hargaden.com/enda/nokia-3210-beamer-theme/">A interesting and cool Nokia-style beamer template</a> </li>
+          <li>My working paper template</li>
+          <li><a href="https://hargaden.com/enda/nokia-3210-beamer-theme/">An interesting and cool Nokia-style beamer template</a> </li>
         </ul>
       </div>
 
