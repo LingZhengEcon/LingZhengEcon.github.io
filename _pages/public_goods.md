@@ -30,14 +30,19 @@ nav_order: 4
         <h4>My AI Workflow</h4>
         <ul>
          <li>Claude is currently inaccessible or unstable in mainland China. I strongly recommend <strong>Notion Business</strong> as an alternative — it offers unlimited access to Claude Opus-4-6 and integrates seamlessly with your Notion workspace.</li>
-         <li>I have developed a <a href="/theory_paper_skills/" target="_blank">Theory Paper Reading</a> workflow that walks through a paper from cover to cover and produces a structured LaTeX document. I have tested it on <a href="/assets/pdf/bayesian_persuasion_notes.pdf" target="_blank">Kamenica and Gentzkow (2011)</a> and <a href="/assets/pdf/hatfield_milgrom_notes.pdf" target="_blank">Hatfield and Milgrom (2005)</a>.
-        </li>
+         <li>I have developed a <a href="/theory_paper_skills/" target="_blank">Theory Paper Reading</a> workflow that walks through a paper from cover to cover and produces a structured LaTeX document. I have tested it on <a href="/assets/pdf/bayesian_persuasion_notes.pdf" target="_blank">Kamenica and Gentzkow (2011)</a> and <a href="/assets/pdf/hatfield_milgrom_notes.pdf" target="_blank">Hatfield and Milgrom (2005)</a>.</li>
+         <li>I use Openai Codex + <a href="https://github.com/54yyyu/zotero-mcp">Zotero MCP</a> to manage literatures.</li>
+         <li>I am currently developing a EconRA Skill and a proper pipeline to accelerate my work. Coming soon!</li>
         </ul>
-        <h4>Blog Articles</h4>
+        <h4>Resourses</h4>
+        <ul>
+        <li><a href="https://bcf.princeton.edu/events/paul-goldsmith-pinkham-mini-series-on-claude-code-for-applied-economists/">Paul Goldsmith-Pinkham mini-series on Claude Code for Applied Economists</a></li>
+        <li><a href="https://economics.mit.edu/sites/default/files/2026-04/IA%20AI%20note_3.pdf">Some Thoughts on AI and Research by Isaiah Andrews</a></li>
+        </ul>
       </div>
 
       <div class="tab-pane fade" id="scholars">
-        <h4>Market Design</h4>
+        <h4>Market Designers</h4>
         <ul>
           <li><a href="https://web.stanford.edu/~alroth/">Al Roth</a> — Stanford</li>
           <li><a href="https://economics.mit.edu/people/faculty/parag-pathak">Parag Pathak</a> — MIT</li>
@@ -50,6 +55,7 @@ nav_order: 4
         <h4>My Notes</h4>
         <ul>
           <li><a href="https://www.overleaf.com/read/tbnhdxcwxqzp#f2e1f3">The Art of Economics Design</a> — Covering matching and mechanism design, incomplete</li>
+          <li>Lattice Theory and Its application in Economics - Coming soon!</li>
         </ul>
         <h4>External Lecture Notes</h4>
         <ul>
