@@ -32,9 +32,3 @@ My research focuses on matching under complex constraints and on using choice fu
 
 You can find my detailed CV below.
 
----
-
-<div style="text-align: center; margin-top: 2rem;">
-  <h4>Visitor Map</h4>
-  <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=1PgBuuNJPS93NXAxf0kQb0KCMWw0MF1shcJESFm30v0&cl=ffffff&w=a"></script>
-</div>
