@@ -28,7 +28,7 @@ latest_posts:
 
 Hi! I am a senior undergraduate student at Wuhan University, majoring in Philosophy, Politics, and Economics. Over the past two years, I have been studying market design under the supervision of [Prof. Jingsheng Yu](https://ems.whu.edu.cn/info/1683/24484.htm). I also work as a research assistant for [Prof. Yuxiao Hu](https://www.yuxiaohu.com/) (SJTU) . 
 
-My research focuses on matching under complex constraints and on using choice functions as primitives, and on where axiomatic approaches apply, including social choice and decision theory. I occasionally conduct empirical research, mainly on labor-market topics.
+My research focuses on matching under complex constraints and on where axiomatic approaches apply, using choice as primitives. I occasionally conduct empirical research, mainly on labor-market topics.
 
 You can find my detailed CV below.
 
