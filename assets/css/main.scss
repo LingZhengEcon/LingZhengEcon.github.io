@@ -87,7 +87,20 @@
   display: none;
 }
 
-a {
+// Work in Progress fixes
+.publications a,
+.bibliography a {
   text-decoration: none !important;
   border-bottom: none !important;
+}
+
+// WIP list styling
+h2 + ul, h2 + div + ul {
+  li {
+    margin-bottom: 1rem;
+  }
+  ul {
+    padding-left: 1.2rem;
+    margin-top: 0.2rem;
+  }
 }
