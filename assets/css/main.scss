@@ -87,20 +87,20 @@
   display: none;
 }
 
-// Work in Progress fixes
-.publications a,
-.bibliography a {
+// 只去掉合作者名字的虚线，不影响按钮
+.publications .author a,
+.bibliography .author a {
   text-decoration: none !important;
   border-bottom: none !important;
 }
 
-// WIP list styling
-h2 + ul, h2 + div + ul {
-  li {
-    margin-bottom: 1rem;
+// WIP 列表间距和缩进
+.publications + h2 + ul,
+h2 + ul {
+  & > li {
+    margin-bottom: 1.2rem;
   }
   ul {
     padding-left: 1.2rem;
-    margin-top: 0.2rem;
   }
 }
