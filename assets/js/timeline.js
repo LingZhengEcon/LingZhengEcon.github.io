@@ -1,19 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // TIMELINE 按钮
-  document.querySelectorAll(".timeline-toggle").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      const container = btn.closest("li, .row, div");
-      const box = container && container.querySelector(".timeline-box");
-      if (box) box.classList.toggle("hidden");
+  function bind(toggleClass, boxClass) {
+    var toggles = document.querySelectorAll("." + toggleClass);
+    var boxes = document.querySelectorAll("." + boxClass);
+    toggles.forEach(function (btn, i) {
+      btn.addEventListener("click", function () {
+        if (boxes[i]) boxes[i].classList.toggle("hidden");
+      });
     });
-  });
-
-  // TLDR 按钮
-  document.querySelectorAll(".tldr-toggle").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      const container = btn.closest("li, .row, div");
-      const box = container && container.querySelector(".tldr-box");
-      if (box) box.classList.toggle("hidden");
-    });
-  });
+  }
+  bind("timeline-toggle", "timeline-box");
+  bind("tldr-toggle", "tldr-box");
 });
