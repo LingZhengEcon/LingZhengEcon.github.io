@@ -86,8 +86,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-i-am-trilled-to-begin-my-master-s-studies-at-the-chinese-university-of-hong-kong-and-northwestern-university-s-dmdp-program-in-august",
-          title: 'I am trilled to begin my Master’s studies at the Chinese University of...',
+            },},{id: "news-i-am-thrilled-to-begin-my-master-s-studies-at-the-chinese-university-of-hong-kong-and-northwestern-university-s-dmdp-program-in-august",
+          title: 'I am thrilled to begin my Master’s studies at the Chinese University of...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
