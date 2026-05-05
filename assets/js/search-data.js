@@ -18,7 +18,7 @@ ninja.data = [{
           },
         },{id: "nav-blog",
           title: "Blog",
-          description: "Poems, economic margins, reading notes, and ordinary fragments.",
+          description: "Poems, economic essays, reading notes, and ordinary fragments.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/blog/";
@@ -52,7 +52,7 @@ ninja.data = [{
         
           title: "Economic research in the era of AI",
         
-        description: "Notes on economics, AI, and the changing production of research.",
+        description: "An essay on economics, AI, and the changing production of research.",
         section: "Posts",
         handler: () => {
           
