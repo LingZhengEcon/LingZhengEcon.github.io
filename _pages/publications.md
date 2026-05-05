@@ -24,10 +24,6 @@ _styles: |
   }
 ---
 
-
-
-
-
 ## Working Papers
 
 <div class="publications working-papers-list">

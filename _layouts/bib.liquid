@@ -57,7 +57,7 @@
       {% if site.max_author_limit and author_array_size > site.max_author_limit %}
         {% assign author_array_limit = site.max_author_limit %}
       {% endif %}
-      
+
       {% if entry.coauthored %}with {% endif %}
       {%- for author in entry.author_array limit: author_array_limit -%}
         {% assign author_is_self = false %}
@@ -199,10 +199,10 @@
         <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
       {% endif %}
       {% if entry.timeline %}
-      <a class="timeline-toggle btn btn-sm z-depth-0" role="button">Timeline</a>
+        <a class="timeline-toggle btn btn-sm z-depth-0" role="button">Timeline</a>
       {% endif %}
       {% if entry.tldr %}
-      <a class="tldr-toggle btn btn-sm z-depth-0" role="button">TLDR</a>
+        <a class="tldr-toggle btn btn-sm z-depth-0" role="button">TLDR</a>
       {% endif %}
       {% if entry.doi %}
         <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
@@ -377,31 +377,31 @@
     {% endif %}
 
     {% if entry.abstract %}
-  <!-- Hidden abstract block -->
-  <div class="abstract hidden">
-    <p> {{entry.abstract}} </p>
-  </div>
-{% endif %}
-
-{% if entry.timeline %}
-  <!-- Hidden timeline block -->
-  <div class="timeline-box hidden">
-    {% assign events = entry.timeline | split: " | " %}
-    {% for event in events %}
-      {% assign parts = event | split: " -- " %}
-      <div class="timeline-item">
-        <span class="timeline-date"> {{parts[0] | strip}} </span>
-        <span class="timeline-text"> {{parts[1] | strip}} </span>
+      <!-- Hidden abstract block -->
+      <div class="abstract hidden">
+        <p>{{ entry.abstract }}</p>
       </div>
-    {% endfor %}
-  </div>
-{% endif %}
+    {% endif %}
 
-{% if entry.tldr %}
-<div class="tldr-box hidden">
-  <p>{{entry.tldr}}</p>
-</div>
-{% endif %}
+    {% if entry.timeline %}
+      <!-- Hidden timeline block -->
+      <div class="timeline-box hidden">
+        {% assign events = entry.timeline | split: ' | ' %}
+        {% for event in events %}
+          {% assign parts = event | split: ' -- ' %}
+          <div class="timeline-item">
+            <span class="timeline-date"> {{ parts[0] | strip }} </span>
+            <span class="timeline-text"> {{ parts[1] | strip }} </span>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if entry.tldr %}
+      <div class="tldr-box hidden">
+        <p>{{ entry.tldr }}</p>
+      </div>
+    {% endif %}
 
     {% if entry.bibtex_show %}
       <!-- Hidden bibtex block -->
@@ -420,4 +420,3 @@
     {% endif %}
   </div>
 </div>
-
