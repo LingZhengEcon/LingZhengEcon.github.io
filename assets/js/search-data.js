@@ -18,7 +18,7 @@ ninja.data = [{
           },
         },{id: "nav-blog",
           title: "Blog",
-          description: "",
+          description: "Poems, economic margins, reading notes, and ordinary fragments.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/blog/";
@@ -37,7 +37,29 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-无题",
+        },{id: "post-叫魂-专断权力-官僚制和情绪资源",
+        
+          title: "《叫魂》：专断权力、官僚制和情绪资源",
+        
+        description: "一则关于专断权力、基础性权力与情绪资源的读书评论。",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/soulstealers-power-bureaucracy/";
+          
+        },
+      },{id: "post-economic-research-in-the-era-of-ai",
+        
+          title: "Economic research in the era of AI",
+        
+        description: "Notes on economics, AI, and the changing production of research.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/economic-research-in-the-era-of-ai/";
+          
+        },
+      },{id: "post-无题",
         
           title: "无题",
         
