@@ -51,7 +51,18 @@ layout: default
     <!-- Social -->
     {% if page.social %}
       <div class="social">
-        <div class="contact-icons">{% social_links %}</div>
+        <div class="contact-icons">
+          {% social_links %}
+          <a
+            class="wechat-social-link"
+            href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzg3Mzg2NDYzNQ==#wechat_redirect"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WeChat"
+          >
+            <img src="{{ '/assets/img/socials/wechat.png' | relative_url }}" alt="WeChat">
+          </a>
+        </div>
 
         <div class="contact-note">{{ site.contact_note }}</div>
       </div>

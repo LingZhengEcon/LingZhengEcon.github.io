@@ -178,10 +178,15 @@ ul.task-list input[type="checkbox"] {
     font-size: 4rem;
 
     a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
       img {
         width: 3.2rem;
         height: 3.2rem;
         margin-bottom: 1rem;
+        object-fit: contain;
       }
 
       svg {
@@ -207,6 +212,10 @@ ul.task-list input[type="checkbox"] {
           color: var(--global-theme-color);
         }
       }
+    }
+
+    .wechat-social-link {
+      margin-left: 0.2rem;
     }
   }
 

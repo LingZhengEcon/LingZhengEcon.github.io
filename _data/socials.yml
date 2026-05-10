@@ -10,8 +10,3 @@ ig:
   logo: https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png # can be png, svg, jpg
   title: ig
   url: https://www.instagram.com/elliott_0224/
-
-wechat:
-  logo: /assets/img/socials/wechat.png
-  title: WeChat
-  url: https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzg3Mzg2NDYzNQ==#wechat_redirect
