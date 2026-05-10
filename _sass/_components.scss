@@ -175,24 +175,30 @@ ul.task-list input[type="checkbox"] {
   text-align: center;
 
   .contact-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
     font-size: 4rem;
 
     a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      line-height: 1;
 
       img {
         width: 3.2rem;
         height: 3.2rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0;
         object-fit: contain;
       }
 
       svg {
         width: 3.5rem;
         height: 4rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0;
 
         image {
           width: 3.5rem;
@@ -215,7 +221,7 @@ ul.task-list input[type="checkbox"] {
     }
 
     .wechat-social-link {
-      margin-left: 0.2rem;
+      margin-left: 0;
     }
   }
 
