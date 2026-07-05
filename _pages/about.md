@@ -25,7 +25,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hi! I am a senior undergraduate student at Wuhan University, majoring in Philosophy, Politics, and Economics. Over the past two years, I have been studying market design under the supervision of [Prof. Jingsheng Yu](https://ems.whu.edu.cn/info/1683/24484.htm). I also work as a research assistant for [Prof. Yuxiao Hu](https://www.yuxiaohu.com/) (SJTU) .
+Hi! I am an incoming master student at CUHK and Northwestern University (Dual Master Degree Program). Previously, I obtained my bachelor degree at Wuhan University, where I major in PPE.
 
 My research focuses on matching under complex constraints and on where axiomatic approaches apply, using choice as primitives. I occasionally conduct empirical research, mainly on labor-market topics.
 
