@@ -282,7 +282,7 @@ _styles: |
 
   .desktop-folder {
     position: absolute;
-    width: 9rem;
+    width: 8.15rem;
   }
 
   .desktop-folder:nth-child(1) {
@@ -320,8 +320,8 @@ _styles: |
 
   .folder-shape {
     position: relative;
-    width: 6.7rem;
-    height: 4.85rem;
+    width: 5.7rem;
+    height: 4.25rem;
     filter: drop-shadow(0 8px 9px rgba(21, 45, 58, 0.34));
   }
 
@@ -907,13 +907,6 @@ _styles: |
     </div>
   </section>
 
-  <section class="dock-panel" data-panel="music" aria-label="Music">
-    <div class="dock-panel-head"><button class="window-dot" type="button" data-close-panel aria-label="Close Music"></button><span class="window-dot"></span><span class="window-dot"></span>Music</div>
-    <div class="dock-panel-body">
-      <p><strong>Piano sketch</strong>Click the Music icon again to replay a short synthesized piano phrase.</p>
-    </div>
-  </section>
-
   <section class="dock-panel" data-panel="trash" aria-label="Trash">
     <div class="dock-panel-head"><button class="window-dot" type="button" data-close-panel aria-label="Close Trash"></button><span class="window-dot"></span><span class="window-dot"></span>Trash</div>
     <div class="dock-panel-body">
@@ -959,8 +952,11 @@ _styles: |
     buttons.forEach((button) => {
       button.addEventListener("click", () => {
         const target = button.dataset.dockPanel;
+        if (target === "music") {
+          playPianoSketch();
+          return;
+        }
         panels.forEach((panel) => panel.classList.toggle("is-open", panel.dataset.panel === target && !panel.classList.contains("is-open")));
-        if (target === "music") playPianoSketch();
       });
     });
 
