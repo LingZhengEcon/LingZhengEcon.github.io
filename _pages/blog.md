@@ -281,6 +281,20 @@ _styles: |
     filter: drop-shadow(0 8px 9px rgba(21, 45, 58, 0.34));
   }
 
+  .folder-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .desktop-defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
   .folder-shape::before {
     content: "";
     position: absolute;
@@ -291,6 +305,7 @@ _styles: |
     border-radius: 0.44rem 0.44rem 0.12rem 0.12rem;
     background: linear-gradient(#87d9f7, #5fc0eb);
     box-shadow: inset 0 0.18rem 0 rgba(255, 255, 255, 0.58);
+    display: none;
   }
 
   .folder-shape::after {
@@ -305,6 +320,7 @@ _styles: |
       inset 0 0.18rem 0 rgba(255, 255, 255, 0.4),
       inset 0 -0.2rem 0 rgba(0, 62, 98, 0.13),
       0 1px 0 rgba(255, 255, 255, 0.72);
+    display: none;
   }
 
   .folder-label {
@@ -453,8 +469,8 @@ _styles: |
     border-radius: 14px;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(237, 242, 247, 0.86));
-    box-shadow: inset 0 1px 0 #fff, 0 8px 16px rgba(20, 28, 38, 0.18);
+    background: transparent;
+    box-shadow: 0 8px 16px rgba(20, 28, 38, 0.18);
     color: #202124;
     cursor: pointer;
     font-size: 0;
@@ -467,92 +483,17 @@ _styles: |
 
   .dock-icon {
     position: absolute;
-    inset: 0.36rem;
-    border-radius: 0.82rem;
+    inset: 0.08rem;
+    width: calc(100% - 0.16rem);
+    height: calc(100% - 0.16rem);
+    overflow: visible;
+    border-radius: 0;
+    background: none !important;
   }
 
-  .dock-icon-finder {
-    background: linear-gradient(90deg, #08a9ff 0 49%, #dff5ff 50% 100%);
-  }
-
-  .dock-icon-finder::before {
-    content: "";
-    position: absolute;
-    inset: 0.62rem;
-    border: 0.12rem solid #10324a;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-radius: 0 0 1.2rem 1.2rem;
-  }
-
-  .dock-icon-finder::after {
-    content: "";
-    position: absolute;
-    top: 0.85rem;
-    left: 0.78rem;
-    width: 0.16rem;
-    height: 0.38rem;
-    border-radius: 1rem;
-    background: #10324a;
-    box-shadow: 1.42rem -0.08rem 0 #10324a, 0.7rem 0.74rem 0 -0.03rem #10324a;
-  }
-
-  .dock-icon-music {
-    background: linear-gradient(150deg, #ff2b72, #ff3451 70%, #fe6a77);
-  }
-
-  .dock-icon-music::before {
-    content: "";
-    position: absolute;
-    left: 1.05rem;
-    top: 0.73rem;
-    width: 0.38rem;
-    height: 1.35rem;
-    border-radius: 0.12rem;
-    background: #fff;
-    box-shadow: 0.84rem -0.22rem 0 #fff;
-    transform: skewY(-8deg);
-  }
-
-  .dock-icon-music::after {
-    content: "";
-    position: absolute;
-    left: 0.64rem;
-    bottom: 0.66rem;
-    width: 0.82rem;
-    height: 0.58rem;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0.88rem -0.2rem 0 #fff;
-  }
-
-  .dock-icon-trash {
-    inset: 0.42rem 0.5rem 0.32rem;
-    border-radius: 0 0 0.46rem 0.46rem;
-    background:
-      linear-gradient(90deg, rgba(255, 255, 255, 0.62), transparent 28% 72%, rgba(255, 255, 255, 0.42)),
-      linear-gradient(rgba(236, 245, 242, 0.82), rgba(168, 184, 178, 0.66));
-    clip-path: polygon(13% 16%, 87% 16%, 77% 100%, 23% 100%);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.62), inset 0 -0.22rem 0 rgba(71, 92, 91, 0.16);
-  }
-
-  .dock-icon-trash::before {
-    content: "";
-    position: absolute;
-    top: -0.25rem;
-    left: 0.32rem;
-    width: 1.95rem;
-    height: 0.32rem;
-    border-radius: 1rem;
-    background: rgba(218, 232, 230, 0.96);
-    box-shadow: 0 0.18rem 0 rgba(104, 121, 119, 0.3);
-  }
-
-  .dock-icon-trash::after {
-    content: "";
-    position: absolute;
-    inset: 0.45rem 0.52rem 0.38rem;
-    background: repeating-linear-gradient(90deg, rgba(98, 116, 116, 0.28) 0 1px, transparent 1px 0.38rem);
+  .dock-icon::before,
+  .dock-icon::after {
+    display: none;
   }
 
   .dock-panel {
@@ -693,6 +634,70 @@ _styles: |
 </script>
 
 <section class="blog-desktop" aria-label="Blog desktop">
+  <svg class="desktop-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="folder-tab" x1="20" x2="20" y1="8" y2="30" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#94e1fb" />
+        <stop offset="1" stop-color="#55bbe7" />
+      </linearGradient>
+      <linearGradient id="folder-body" x1="64" x2="64" y1="28" y2="88" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#78d4f3" />
+        <stop offset="0.42" stop-color="#56bee9" />
+        <stop offset="1" stop-color="#39a8dc" />
+      </linearGradient>
+      <linearGradient id="finder-left" x1="14" x2="62" y1="10" y2="110" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#1fd2ff" />
+        <stop offset="0.48" stop-color="#10a8ff" />
+        <stop offset="1" stop-color="#087cf0" />
+      </linearGradient>
+      <linearGradient id="finder-right" x1="116" x2="62" y1="8" y2="112" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#fbfeff" />
+        <stop offset="0.54" stop-color="#dff7ff" />
+        <stop offset="1" stop-color="#8bdcff" />
+      </linearGradient>
+      <linearGradient id="music-bg" x1="18" x2="110" y1="10" y2="118" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#ff6aa2" />
+        <stop offset="0.36" stop-color="#ff245f" />
+        <stop offset="1" stop-color="#ff3845" />
+      </linearGradient>
+      <linearGradient id="trash-body" x1="30" x2="98" y1="34" y2="118" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#f9ffff" stop-opacity="0.9" />
+        <stop offset="0.55" stop-color="#cad9d7" stop-opacity="0.72" />
+        <stop offset="1" stop-color="#9aa9a6" stop-opacity="0.78" />
+      </linearGradient>
+      <symbol id="desktop-folder-symbol" viewBox="0 0 128 96">
+        <path d="M8 22c0-6.2 5-11.2 11.2-11.2h28.3c4.2 0 6.8 1.5 9.6 4.6l6 6.6h45.7c6.2 0 11.2 5 11.2 11.2v4.2H8V22Z" fill="url(#folder-tab)" />
+        <path d="M9 30h110c4.4 0 8 3.6 8 8v40.8c0 6.2-5 11.2-11.2 11.2H12.2C6 90 1 85 1 78.8V38c0-4.4 3.6-8 8-8Z" fill="url(#folder-body)" />
+        <path d="M4 34.4h120v8.8H4z" fill="#baf0ff" opacity="0.46" />
+        <path d="M4 33h120" stroke="#eaffff" stroke-width="3" stroke-linecap="round" opacity="0.7" />
+        <path d="M9 30h110c4.4 0 8 3.6 8 8v40.8c0 6.2-5 11.2-11.2 11.2H12.2C6 90 1 85 1 78.8V38c0-4.4 3.6-8 8-8Z" fill="none" stroke="#167fac" stroke-opacity="0.22" />
+      </symbol>
+      <symbol id="dock-finder-symbol" viewBox="0 0 128 128">
+        <rect x="8" y="8" width="112" height="112" rx="27" fill="url(#finder-left)" />
+        <path d="M64 8h29c14.9 0 27 12.1 27 27v58c0 14.9-12.1 27-27 27H64V8Z" fill="url(#finder-right)" />
+        <path d="M64 8v112" stroke="#0877cf" stroke-width="2" opacity="0.45" />
+        <path d="M31 47v10M89 45v11" stroke="#122337" stroke-width="5" stroke-linecap="round" />
+        <path d="M32 78c11 12 42 15 64-4" fill="none" stroke="#122337" stroke-width="4" stroke-linecap="round" />
+        <path d="M65 34c-6 11-7 20-4 30" fill="none" stroke="#122337" stroke-width="3" stroke-linecap="round" opacity="0.75" />
+        <rect x="8" y="8" width="112" height="112" rx="27" fill="none" stroke="#fff" stroke-opacity="0.28" stroke-width="2" />
+      </symbol>
+      <symbol id="dock-music-symbol" viewBox="0 0 128 128">
+        <rect x="10" y="10" width="108" height="108" rx="27" fill="url(#music-bg)" />
+        <path d="M76 30v55.5c0 9.1-7.7 16.5-17.2 16.5-8.4 0-14.8-4.9-14.8-11.9 0-8.6 8.6-15 18.6-13.5 2 .3 3.9.8 5.4 1.6V43.4l38-7.8v13.2L76 55.2" fill="#fff" />
+        <rect x="10" y="10" width="108" height="108" rx="27" fill="none" stroke="#fff" stroke-opacity="0.24" stroke-width="2" />
+      </symbol>
+      <symbol id="dock-trash-symbol" viewBox="0 0 128 128">
+        <path d="M35 35h58l-7.2 80H42.2L35 35Z" fill="url(#trash-body)" stroke="#f7ffff" stroke-opacity="0.7" stroke-width="2" />
+        <path d="M31 34h66" stroke="#ecf5f4" stroke-width="9" stroke-linecap="round" />
+        <path d="M51 27h26" stroke="#d6e4e2" stroke-width="8" stroke-linecap="round" />
+        <path d="M49 45l4 59M64 45v60M79 45l-4 59" stroke="#798987" stroke-opacity="0.36" stroke-width="3" stroke-linecap="round" />
+        <path d="M38 44c14 8 36 3 51 0" stroke="#fff" stroke-opacity="0.38" stroke-width="4" stroke-linecap="round" />
+        <path d="M45 31l9-8 15 8 11-7 9 8" fill="none" stroke="#3c8cff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.75" />
+        <path d="M45 31l9-8 15 8 11-7 9 8" fill="none" stroke="#ffcf2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9" />
+      </symbol>
+    </defs>
+  </svg>
+
   <aside class="desktop-widgets" aria-label="Blog widgets">
     <section class="desktop-widget activity-widget" aria-label="Recent writing calendar">
       <p class="widget-kicker">Writing activity</p>
@@ -734,7 +739,7 @@ _styles: |
   <div class="desktop-icons" aria-label="Blog folders">
     <details class="desktop-folder">
       <summary class="folder-toggle">
-        <span class="folder-shape" aria-hidden="true"></span>
+        <span class="folder-shape" aria-hidden="true"><svg class="folder-svg"><use href="#desktop-folder-symbol"></use></svg></span>
         <span class="folder-label">Poetry</span>
       </summary>
       <div class="folder-window">
@@ -753,7 +758,7 @@ _styles: |
 
     <details class="desktop-folder">
       <summary class="folder-toggle">
-        <span class="folder-shape" aria-hidden="true"></span>
+        <span class="folder-shape" aria-hidden="true"><svg class="folder-svg"><use href="#desktop-folder-symbol"></use></svg></span>
         <span class="folder-label">Econ Essays</span>
       </summary>
       <div class="folder-window">
@@ -772,7 +777,7 @@ _styles: |
 
     <details class="desktop-folder">
       <summary class="folder-toggle">
-        <span class="folder-shape" aria-hidden="true"></span>
+        <span class="folder-shape" aria-hidden="true"><svg class="folder-svg"><use href="#desktop-folder-symbol"></use></svg></span>
         <span class="folder-label">Reading Notes</span>
       </summary>
       <div class="folder-window">
@@ -791,7 +796,7 @@ _styles: |
 
     <details class="desktop-folder">
       <summary class="folder-toggle">
-        <span class="folder-shape" aria-hidden="true"></span>
+        <span class="folder-shape" aria-hidden="true"><svg class="folder-svg"><use href="#desktop-folder-symbol"></use></svg></span>
         <span class="folder-label">Fragments</span>
       </summary>
       <div class="folder-window">
@@ -812,13 +817,13 @@ _styles: |
 
   <div class="desktop-dock" aria-label="Small dock">
     <button class="dock-button" type="button" data-dock-panel="finder" aria-label="Open Finder">
-      <span class="dock-icon dock-icon-finder" aria-hidden="true"></span>
+      <svg class="dock-icon" aria-hidden="true"><use href="#dock-finder-symbol"></use></svg>
     </button>
     <button class="dock-button" type="button" data-dock-panel="music" aria-label="Play piano">
-      <span class="dock-icon dock-icon-music" aria-hidden="true"></span>
+      <svg class="dock-icon" aria-hidden="true"><use href="#dock-music-symbol"></use></svg>
     </button>
     <button class="dock-button" type="button" data-dock-panel="trash" aria-label="Open Trash">
-      <span class="dock-icon dock-icon-trash" aria-hidden="true"></span>
+      <svg class="dock-icon" aria-hidden="true"><use href="#dock-trash-symbol"></use></svg>
     </button>
   </div>
 
