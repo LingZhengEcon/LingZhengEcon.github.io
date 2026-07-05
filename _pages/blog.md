@@ -6,6 +6,23 @@ nav: true
 nav_order: 3
 description: Poems, economic essays, reading notes, and ordinary fragments.
 _styles: |
+  body.blog-desktop-page {
+    overflow-x: hidden;
+    background: #8aa167;
+  }
+
+  body.blog-desktop-page .container.mt-5 {
+    max-width: none;
+    width: 100%;
+    margin-top: 0 !important;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  body.blog-desktop-page footer {
+    display: none;
+  }
+
   .post-header {
     display: none;
   }
@@ -22,14 +39,14 @@ _styles: |
     --folder-front: #51b7e4;
     --folder-back: #82d0f1;
     position: relative;
-    width: min(1180px, calc(100vw - 1.5rem));
-    min-height: clamp(720px, 82vh, 920px);
-    margin: 0 auto 2.5rem;
+    width: 100vw;
+    min-height: calc(100vh - 3.5rem);
+    margin: 0;
     margin-left: 50%;
     overflow: hidden;
     transform: translateX(-50%);
-    border: 1px solid rgba(22, 22, 22, 0.12);
-    border-radius: 22px;
+    border: 0;
+    border-radius: 0;
     background:
       linear-gradient(90deg, rgba(255, 255, 255, 0.54), rgba(255, 255, 255, 0.06) 28%, rgba(255, 255, 255, 0.1) 70%),
       linear-gradient(171deg, rgba(255, 225, 151, 0.8) 0 16%, transparent 16.2% 100%),
@@ -64,33 +81,14 @@ _styles: |
     filter: blur(1px);
   }
 
-  .desktop-title {
-    position: absolute;
-    top: 1.2rem;
-    left: 1.4rem;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.96);
-    font-size: clamp(1.45rem, 3vw, 2.65rem);
-    font-weight: 750;
-    letter-spacing: 0;
-    line-height: 1;
-    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.36);
-  }
-
-  .desktop-date {
-    display: block;
-    margin-top: 0.35rem;
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.78);
-  }
-
   .desktop-widgets {
     position: absolute;
-    top: 5.6rem;
+    top: 1.15rem;
     left: 1.2rem;
     display: grid;
-    width: min(24rem, calc(100vw - 3rem));
+    grid-template-rows: minmax(0, 0.48fr) minmax(0, 0.52fr);
+    width: min(19.5rem, calc(100vw - 2.4rem));
+    height: min(75%, 41rem);
     gap: 1rem;
   }
 
@@ -104,7 +102,7 @@ _styles: |
   }
 
   .activity-widget {
-    padding: 1.1rem 1.15rem 1rem;
+    padding: 0.95rem 1rem 0.9rem;
   }
 
   .widget-kicker {
@@ -126,7 +124,7 @@ _styles: |
 
   .activity-count {
     margin: 0;
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-weight: 780;
     line-height: 0.95;
   }
@@ -142,7 +140,7 @@ _styles: |
   .activity-grid {
     display: grid;
     grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 0.28rem;
+    gap: 0.22rem;
   }
 
   .activity-weekdays {
@@ -155,7 +153,7 @@ _styles: |
 
   .activity-day {
     aspect-ratio: 1;
-    border-radius: 5px;
+    border-radius: 4px;
     background: rgba(255, 255, 255, 0.55);
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
   }
@@ -179,27 +177,28 @@ _styles: |
   .note-widget::before {
     content: "";
     display: block;
-    height: 1.9rem;
+    height: 1.55rem;
     background:
       linear-gradient(90deg, rgba(124, 92, 18, 0.12), transparent),
       repeating-linear-gradient(90deg, rgba(116, 85, 18, 0.12) 0 1px, transparent 1px 28px);
   }
 
   .note-body {
-    padding: 1rem 1.15rem 1.2rem;
+    height: calc(100% - 1.55rem);
+    padding: 0.92rem 1rem 1.05rem;
     background: repeating-linear-gradient(#fff4b8 0 2.15rem, #eadb96 2.2rem 2.26rem);
   }
 
   .note-title {
     margin: 0 0 0.55rem;
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     font-weight: 760;
   }
 
   .note-list {
     display: grid;
     gap: 0.48rem;
-    min-height: 7.7rem;
+    min-height: 0;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -208,7 +207,7 @@ _styles: |
   .note-post {
     display: none;
     color: #28230f;
-    font-size: 0.94rem;
+    font-size: 0.88rem;
     line-height: 1.5;
   }
 
@@ -234,32 +233,32 @@ _styles: |
 
   .desktop-icons {
     position: absolute;
-    inset: 5.1rem 1.6rem 6.8rem 28rem;
+    inset: 4.2rem 2.1rem 7rem 23rem;
   }
 
   .desktop-folder {
     position: absolute;
-    width: 8.6rem;
+    width: 9rem;
   }
 
   .desktop-folder:nth-child(1) {
-    top: 1.2rem;
+    top: 0.8rem;
     left: 6%;
   }
 
   .desktop-folder:nth-child(2) {
-    top: 2.8rem;
-    right: 17%;
+    top: 2.5rem;
+    right: 13%;
   }
 
   .desktop-folder:nth-child(3) {
-    top: 15.5rem;
-    left: 35%;
+    top: 16rem;
+    left: 32%;
   }
 
   .desktop-folder:nth-child(4) {
-    right: 3%;
-    bottom: 7.8rem;
+    right: 4%;
+    bottom: 6.2rem;
   }
 
   .folder-toggle {
@@ -277,29 +276,35 @@ _styles: |
 
   .folder-shape {
     position: relative;
-    width: 5.7rem;
-    height: 4.1rem;
-    filter: drop-shadow(0 8px 8px rgba(21, 45, 58, 0.28));
+    width: 6.7rem;
+    height: 4.85rem;
+    filter: drop-shadow(0 8px 9px rgba(21, 45, 58, 0.34));
   }
 
   .folder-shape::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0.32rem;
-    width: 2.55rem;
-    height: 0.95rem;
-    border-radius: 0.32rem 0.32rem 0.12rem 0.12rem;
-    background: var(--folder-back);
+    top: 0.05rem;
+    left: 0.22rem;
+    width: 6.2rem;
+    height: 1.35rem;
+    border-radius: 0.44rem 0.44rem 0.12rem 0.12rem;
+    background: linear-gradient(#87d9f7, #5fc0eb);
+    box-shadow: inset 0 0.18rem 0 rgba(255, 255, 255, 0.58);
   }
 
   .folder-shape::after {
     content: "";
     position: absolute;
-    inset: 0.55rem 0 0;
-    border-radius: 0.34rem 0.34rem 0.5rem 0.5rem;
-    background: linear-gradient(#6cc8ed, var(--folder-front));
-    box-shadow: inset 0 0.22rem 0 rgba(255, 255, 255, 0.38), inset 0 -0.16rem 0 rgba(0, 58, 92, 0.12);
+    inset: 0.82rem 0 0;
+    border-radius: 0.34rem 0.34rem 0.48rem 0.48rem;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.42), transparent 24%),
+      linear-gradient(#6ed0f2, #43adde);
+    box-shadow:
+      inset 0 0.18rem 0 rgba(255, 255, 255, 0.4),
+      inset 0 -0.2rem 0 rgba(0, 62, 98, 0.13),
+      0 1px 0 rgba(255, 255, 255, 0.72);
   }
 
   .folder-label {
@@ -324,13 +329,14 @@ _styles: |
   }
 
   .folder-window {
-    position: absolute;
-    top: 5.4rem;
+    position: fixed;
+    top: 50%;
     left: 50%;
-    width: min(22rem, 78vw);
-    max-height: 24rem;
+    z-index: 30;
+    width: min(50rem, calc(100vw - 4rem));
+    max-height: min(68vh, 42rem);
     overflow: auto;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     border: 1px solid rgba(255, 255, 255, 0.62);
     border-radius: 14px;
     background: rgba(246, 248, 250, 0.86);
@@ -343,8 +349,8 @@ _styles: |
     top: 0;
     display: flex;
     align-items: center;
-    gap: 0.42rem;
-    padding: 0.62rem 0.78rem;
+    gap: 0.46rem;
+    padding: 0.7rem 0.86rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     background: rgba(245, 246, 248, 0.92);
     color: rgba(32, 33, 36, 0.7);
@@ -353,10 +359,15 @@ _styles: |
   }
 
   .window-dot {
+    display: inline-grid;
+    place-items: center;
     width: 0.66rem;
     height: 0.66rem;
+    padding: 0;
+    border: 0;
     border-radius: 50%;
     background: #ff5f57;
+    cursor: pointer;
   }
 
   .window-dot:nth-child(2) {
@@ -383,10 +394,10 @@ _styles: |
 
   .folder-posts a {
     display: grid;
-    grid-template-columns: 4.7rem minmax(0, 1fr);
-    gap: 0.75rem;
+    grid-template-columns: 5.9rem minmax(0, 1fr);
+    gap: 1rem;
     align-items: baseline;
-    padding: 0.72rem 0.88rem;
+    padding: 0.86rem 1rem;
     color: var(--desktop-ink);
     text-decoration: none;
   }
@@ -403,7 +414,7 @@ _styles: |
 
   .folder-posts span {
     overflow: hidden;
-    font-size: 0.92rem;
+    font-size: 1rem;
     font-weight: 650;
     line-height: 1.35;
     text-overflow: ellipsis;
@@ -423,8 +434,8 @@ _styles: |
     bottom: 1.35rem;
     display: flex;
     align-items: end;
-    gap: 0.72rem;
-    padding: 0.62rem 0.78rem;
+    gap: 0.78rem;
+    padding: 0.66rem 0.82rem;
     transform: translateX(50%);
     border: 1px solid rgba(255, 255, 255, 0.48);
     border-radius: 22px;
@@ -436,15 +447,17 @@ _styles: |
   .dock-button {
     display: grid;
     place-items: center;
-    width: 3.15rem;
-    height: 3.15rem;
+    width: 3.45rem;
+    height: 3.45rem;
     border: 0;
     border-radius: 14px;
+    position: relative;
+    overflow: hidden;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(237, 242, 247, 0.86));
     box-shadow: inset 0 1px 0 #fff, 0 8px 16px rgba(20, 28, 38, 0.18);
     color: #202124;
     cursor: pointer;
-    font-size: 1.25rem;
+    font-size: 0;
   }
 
   .dock-button:hover,
@@ -452,13 +465,106 @@ _styles: |
     transform: translateY(-5px);
   }
 
-  .dock-note {
+  .dock-icon {
     position: absolute;
-    right: 1.2rem;
+    inset: 0.36rem;
+    border-radius: 0.82rem;
+  }
+
+  .dock-icon-finder {
+    background: linear-gradient(90deg, #08a9ff 0 49%, #dff5ff 50% 100%);
+  }
+
+  .dock-icon-finder::before {
+    content: "";
+    position: absolute;
+    inset: 0.62rem;
+    border: 0.12rem solid #10324a;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-radius: 0 0 1.2rem 1.2rem;
+  }
+
+  .dock-icon-finder::after {
+    content: "";
+    position: absolute;
+    top: 0.85rem;
+    left: 0.78rem;
+    width: 0.16rem;
+    height: 0.38rem;
+    border-radius: 1rem;
+    background: #10324a;
+    box-shadow: 1.42rem -0.08rem 0 #10324a, 0.7rem 0.74rem 0 -0.03rem #10324a;
+  }
+
+  .dock-icon-music {
+    background: linear-gradient(150deg, #ff2b72, #ff3451 70%, #fe6a77);
+  }
+
+  .dock-icon-music::before {
+    content: "";
+    position: absolute;
+    left: 1.05rem;
+    top: 0.73rem;
+    width: 0.38rem;
+    height: 1.35rem;
+    border-radius: 0.12rem;
+    background: #fff;
+    box-shadow: 0.84rem -0.22rem 0 #fff;
+    transform: skewY(-8deg);
+  }
+
+  .dock-icon-music::after {
+    content: "";
+    position: absolute;
+    left: 0.64rem;
+    bottom: 0.66rem;
+    width: 0.82rem;
+    height: 0.58rem;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0.88rem -0.2rem 0 #fff;
+  }
+
+  .dock-icon-trash {
+    inset: 0.42rem 0.5rem 0.32rem;
+    border-radius: 0 0 0.46rem 0.46rem;
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.62), transparent 28% 72%, rgba(255, 255, 255, 0.42)),
+      linear-gradient(rgba(236, 245, 242, 0.82), rgba(168, 184, 178, 0.66));
+    clip-path: polygon(13% 16%, 87% 16%, 77% 100%, 23% 100%);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.62), inset 0 -0.22rem 0 rgba(71, 92, 91, 0.16);
+  }
+
+  .dock-icon-trash::before {
+    content: "";
+    position: absolute;
+    top: -0.25rem;
+    left: 0.32rem;
+    width: 1.95rem;
+    height: 0.32rem;
+    border-radius: 1rem;
+    background: rgba(218, 232, 230, 0.96);
+    box-shadow: 0 0.18rem 0 rgba(104, 121, 119, 0.3);
+  }
+
+  .dock-icon-trash::after {
+    content: "";
+    position: absolute;
+    inset: 0.45rem 0.52rem 0.38rem;
+    background: repeating-linear-gradient(90deg, rgba(98, 116, 116, 0.28) 0 1px, transparent 1px 0.38rem);
+  }
+
+  .dock-panel {
+    position: absolute;
+    left: 50%;
     bottom: 5.9rem;
     display: none;
-    width: min(21rem, calc(100vw - 2.4rem));
-    padding: 0.95rem 1rem;
+    width: min(42rem, calc(100vw - 2.6rem));
+    max-height: 52vh;
+    overflow: auto;
+    padding: 0;
+    transform: translateX(-50%);
     border: 1px solid rgba(255, 255, 255, 0.62);
     border-radius: 14px;
     background: rgba(255, 255, 255, 0.76);
@@ -469,19 +575,38 @@ _styles: |
     line-height: 1.55;
   }
 
-  .dock-note.is-open {
+  .dock-panel.is-open {
     display: block;
   }
 
-  .dock-note strong {
+  .dock-panel-head {
+    display: flex;
+    align-items: center;
+    gap: 0.46rem;
+    padding: 0.7rem 0.86rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(245, 246, 248, 0.86);
+    font-weight: 720;
+  }
+
+  .dock-panel-body {
+    padding: 0.75rem 0;
+  }
+
+  .dock-panel-body p {
+    margin: 0;
+    padding: 0.9rem 1rem;
+    color: var(--desktop-muted);
+  }
+
+  .dock-panel strong {
     display: block;
     margin-bottom: 0.2rem;
   }
 
   @media (max-width: 900px) {
     .blog-desktop {
-      min-height: 980px;
-      border-radius: 18px;
+      min-height: calc(100vh - 3.5rem);
     }
 
     .desktop-widgets {
@@ -489,7 +614,8 @@ _styles: |
       top: auto;
       left: auto;
       width: auto;
-      padding: 5.2rem 1rem 0;
+      height: auto;
+      padding: 1rem 1rem 0;
     }
 
     .desktop-icons {
@@ -509,8 +635,8 @@ _styles: |
 
     .folder-window {
       position: fixed;
-      top: auto;
-      bottom: 6rem;
+      top: 50%;
+      bottom: auto;
       left: 50%;
       z-index: 20;
     }
@@ -518,13 +644,7 @@ _styles: |
 
   @media (max-width: 520px) {
     .blog-desktop {
-      width: calc(100vw - 0.75rem);
-      min-height: 1040px;
-      border-radius: 14px;
-    }
-
-    .desktop-title {
-      left: 1rem;
+      min-height: calc(100vh - 3.5rem);
     }
 
     .desktop-icons {
@@ -539,6 +659,10 @@ _styles: |
     .dock-button {
       width: 2.85rem;
       height: 2.85rem;
+    }
+
+    .folder-window {
+      width: calc(100vw - 1.4rem);
     }
   }
 ---
@@ -564,12 +688,11 @@ _styles: |
 {% assign reading_posts = site.posts | where_exp: 'post', "post.tags contains 'reading'" %}
 {% assign fragments_posts = site.posts | where_exp: 'post', "post.tags contains 'fragments'" %}
 
-<section class="blog-desktop" aria-labelledby="blog-desktop-title">
-  <h1 class="desktop-title" id="blog-desktop-title">
-    Blog
-    <span class="desktop-date">{{ site.time | date: '%A, %b %-d' }}</span>
-  </h1>
+<script>
+  document.body.classList.add("blog-desktop-page");
+</script>
 
+<section class="blog-desktop" aria-label="Blog desktop">
   <aside class="desktop-widgets" aria-label="Blog widgets">
     <section class="desktop-widget activity-widget" aria-label="Recent writing calendar">
       <p class="widget-kicker">Writing activity</p>
@@ -615,7 +738,7 @@ _styles: |
         <span class="folder-label">Poetry</span>
       </summary>
       <div class="folder-window">
-        <div class="folder-window-head"><span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>Poetry</div>
+        <div class="folder-window-head"><button class="window-dot" type="button" data-close-folder aria-label="Close Poetry"></button><span class="window-dot"></span><span class="window-dot"></span>Poetry</div>
         <ul class="folder-posts">
           {% for post in poetry_posts %}
             <li>
@@ -634,7 +757,7 @@ _styles: |
         <span class="folder-label">Econ Essays</span>
       </summary>
       <div class="folder-window">
-        <div class="folder-window-head"><span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>Econ Essays</div>
+        <div class="folder-window-head"><button class="window-dot" type="button" data-close-folder aria-label="Close Econ Essays"></button><span class="window-dot"></span><span class="window-dot"></span>Econ Essays</div>
         <ul class="folder-posts">
           {% for post in economics_posts %}
             <li>
@@ -653,7 +776,7 @@ _styles: |
         <span class="folder-label">Reading Notes</span>
       </summary>
       <div class="folder-window">
-        <div class="folder-window-head"><span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>Reading Notes</div>
+        <div class="folder-window-head"><button class="window-dot" type="button" data-close-folder aria-label="Close Reading Notes"></button><span class="window-dot"></span><span class="window-dot"></span>Reading Notes</div>
         <ul class="folder-posts">
           {% for post in reading_posts %}
             <li>
@@ -672,7 +795,7 @@ _styles: |
         <span class="folder-label">Fragments</span>
       </summary>
       <div class="folder-window">
-        <div class="folder-window-head"><span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>Fragments</div>
+        <div class="folder-window-head"><button class="window-dot" type="button" data-close-folder aria-label="Close Fragments"></button><span class="window-dot"></span><span class="window-dot"></span>Fragments</div>
         <ul class="folder-posts">
           {% for post in fragments_posts %}
             <li>
@@ -688,14 +811,43 @@ _styles: |
   </div>
 
   <div class="desktop-dock" aria-label="Small dock">
-    <button class="dock-button" type="button" data-dock-note="about" aria-label="Open about note">~</button>
-    <button class="dock-button" type="button" data-dock-note="now" aria-label="Open now note">?</button>
-    <button class="dock-button" type="button" data-dock-note="mood" aria-label="Open mood note">*</button>
+    <button class="dock-button" type="button" data-dock-panel="finder" aria-label="Open Finder">
+      <span class="dock-icon dock-icon-finder" aria-hidden="true"></span>
+    </button>
+    <button class="dock-button" type="button" data-dock-panel="music" aria-label="Play piano">
+      <span class="dock-icon dock-icon-music" aria-hidden="true"></span>
+    </button>
+    <button class="dock-button" type="button" data-dock-panel="trash" aria-label="Open Trash">
+      <span class="dock-icon dock-icon-trash" aria-hidden="true"></span>
+    </button>
   </div>
 
-  <p class="dock-note" data-note-panel="about"><strong>About this desktop</strong>Folders are categories; the yellow note reshuffles three posts every time the page loads.</p>
-  <p class="dock-note" data-note-panel="now"><strong>Now</strong>Latest post: <a href="{{ latest_post.url | relative_url }}">{{ latest_post.title }}</a>.</p>
-  <p class="dock-note" data-note-panel="mood"><strong>Mood</strong>A small place for essays, poems, reading traces, and unfinished thoughts.</p>
+  <section class="dock-panel" data-panel="finder" aria-label="All posts">
+    <div class="dock-panel-head"><button class="window-dot" type="button" data-close-panel aria-label="Close Finder"></button><span class="window-dot"></span><span class="window-dot"></span>Finder - All Blog Posts</div>
+    <div class="dock-panel-body">
+      <ul class="folder-posts">
+        {% for post in site.posts %}
+          <li>
+            <a href="{{ post.url | relative_url }}"><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y.%m.%d' }}</time><span>{{ post.title }}</span></a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <section class="dock-panel" data-panel="music" aria-label="Music">
+    <div class="dock-panel-head"><button class="window-dot" type="button" data-close-panel aria-label="Close Music"></button><span class="window-dot"></span><span class="window-dot"></span>Music</div>
+    <div class="dock-panel-body">
+      <p><strong>Piano sketch</strong>Click the Music icon again to replay a short synthesized piano phrase.</p>
+    </div>
+  </section>
+
+  <section class="dock-panel" data-panel="trash" aria-label="Trash">
+    <div class="dock-panel-head"><button class="window-dot" type="button" data-close-panel aria-label="Close Trash"></button><span class="window-dot"></span><span class="window-dot"></span>Trash</div>
+    <div class="dock-panel-body">
+      <p>Trash is empty.</p>
+    </div>
+  </section>
 </section>
 
 <script>
@@ -706,13 +858,49 @@ _styles: |
       .slice(0, 3)
       .forEach((post) => post.classList.add("is-visible"));
 
-    const buttons = document.querySelectorAll("[data-dock-note]");
-    const panels = document.querySelectorAll("[data-note-panel]");
+    const buttons = document.querySelectorAll("[data-dock-panel]");
+    const panels = document.querySelectorAll("[data-panel]");
+    let audioContext;
+
+    const playPianoSketch = () => {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+      audioContext = audioContext || new AudioContext();
+      const now = audioContext.currentTime;
+      const notes = [261.63, 329.63, 392, 523.25, 493.88, 392, 329.63, 261.63];
+
+      notes.forEach((frequency, index) => {
+        const start = now + index * 0.18;
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        oscillator.type = "triangle";
+        oscillator.frequency.setValueAtTime(frequency, start);
+        gain.gain.setValueAtTime(0.0001, start);
+        gain.gain.exponentialRampToValueAtTime(0.16, start + 0.012);
+        gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.34);
+        oscillator.connect(gain).connect(audioContext.destination);
+        oscillator.start(start);
+        oscillator.stop(start + 0.36);
+      });
+    };
+
     buttons.forEach((button) => {
       button.addEventListener("click", () => {
-        const target = button.dataset.dockNote;
-        panels.forEach((panel) => panel.classList.toggle("is-open", panel.dataset.notePanel === target && !panel.classList.contains("is-open")));
+        const target = button.dataset.dockPanel;
+        panels.forEach((panel) => panel.classList.toggle("is-open", panel.dataset.panel === target && !panel.classList.contains("is-open")));
+        if (target === "music") playPianoSketch();
       });
+    });
+
+    document.querySelectorAll("[data-close-folder]").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        button.closest("details").removeAttribute("open");
+      });
+    });
+
+    document.querySelectorAll("[data-close-panel]").forEach((button) => {
+      button.addEventListener("click", () => button.closest("[data-panel]").classList.remove("is-open"));
     });
   })();
 </script>
