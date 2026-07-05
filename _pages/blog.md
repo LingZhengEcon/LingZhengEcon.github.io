@@ -127,46 +127,66 @@ _styles: |
 
   .activity-map {
     display: grid;
-    grid-template-columns: 1.35rem minmax(0, 1fr);
-    gap: 0.4rem;
-    align-items: start;
+    gap: 0.46rem;
   }
 
-  .activity-weekdays {
+  .activity-month-axis,
+  .activity-year-row {
     display: grid;
-    grid-template-rows: repeat(7, 0.72rem);
-    gap: 0.22rem;
-    color: rgba(32, 33, 36, 0.46);
-    font-size: 0.58rem;
+    grid-template-columns: 2.65rem repeat(12, minmax(0, 1fr));
+    gap: 0.24rem;
+    align-items: center;
+  }
+
+  .activity-month-axis {
+    color: rgba(32, 33, 36, 0.42);
+    font-size: 0.52rem;
     font-weight: 700;
-    line-height: 0.72rem;
-    text-align: right;
+    line-height: 1;
+    text-align: center;
   }
 
-  .activity-grid {
+  .activity-year-label {
+    color: rgba(32, 33, 36, 0.54);
+    font-size: 0.66rem;
+    font-weight: 740;
+    line-height: 1;
+  }
+
+  .activity-month-cell {
+    position: relative;
     display: grid;
-    grid-auto-flow: column;
-    grid-template-rows: repeat(7, 0.72rem);
-    grid-auto-columns: 0.72rem;
-    gap: 0.22rem;
-    overflow: hidden;
-  }
-
-  .activity-day {
-    width: 0.72rem;
-    height: 0.72rem;
-    border-radius: 2.5px;
+    place-items: center;
+    width: 100%;
+    aspect-ratio: 1;
+    min-width: 0.86rem;
+    border-radius: 3px;
     background: #ebedf0;
     box-shadow: inset 0 0 0 1px rgba(27, 31, 36, 0.04);
   }
 
-  .activity-day.is-active {
-    background: #40c463;
-    box-shadow: inset 0 0 0 1px rgba(27, 31, 36, 0.05);
+  .activity-month-cell.is-low {
+    background: #9be9a8;
   }
 
-  .activity-day.is-double {
+  .activity-month-cell.is-mid {
+    background: #40c463;
+  }
+
+  .activity-month-cell.is-high {
     background: #216e39;
+  }
+
+  .activity-month-count {
+    color: rgba(16, 24, 39, 0.58);
+    font-size: 0.52rem;
+    font-weight: 760;
+    line-height: 1;
+  }
+
+  .activity-month-cell.is-mid .activity-month-count,
+  .activity-month-cell.is-high .activity-month-count {
+    color: #fff;
   }
 
   .activity-legend {
@@ -633,20 +653,10 @@ _styles: |
 ---
 
 {% assign latest_post = site.posts | first %}
-{% assign latest_month_key = latest_post.date | date: '%Y-%m' %}
-{% assign active_days = '|' %}
-{% assign duplicate_days = '|' %}
-{% for post in site.posts %}
-{% assign post_month_key = post.date | date: '%Y-%m' %}
-{% if post_month_key == latest_month_key %}
-{% assign day_key = post.date | date: '%d' | prepend: '|' | append: '|' %}
-{% if active_days contains day_key %}
-{% assign duplicate_days = duplicate_days | append: post.date | date: '%d' | append: '|' %}
-{% else %}
-{% assign active_days = active_days | append: post.date | date: '%d' | append: '|' %}
-{% endif %}
-{% endif %}
-{% endfor %}
+{% assign oldest_post = site.posts | last %}
+{% assign latest_year = latest_post.date | date: '%Y' | plus: 0 %}
+{% assign oldest_year = oldest_post.date | date: '%Y' | plus: 0 %}
+{% assign month_names = 'Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec' | split: ',' %}
 
 {% assign poetry_posts = site.posts | where_exp: 'post', "post.tags contains 'poetry'" %}
 {% assign economics_posts = site.posts | where_exp: 'post', "post.tags contains 'economics'" %}
@@ -727,22 +737,45 @@ _styles: |
       <p class="widget-kicker">Writing activity</p>
       <div class="activity-head">
         <p class="activity-count">{{ site.posts | size }} posts</p>
-        <p class="activity-month">{{ latest_post.date | date: '%B %Y' }}</p>
+        <p class="activity-month">{{ oldest_year }}-{{ latest_year }}</p>
       </div>
       <div class="activity-map">
-        <div class="activity-weekdays" aria-hidden="true">
-          <span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span>
-        </div>
-        <div class="activity-grid" aria-label="Dates with blog updates in {{ latest_post.date | date: '%B %Y' }}">
-          {% for day in (1..35) %}
-            {% assign day_string = day | prepend: '0' | slice: -2, 2 %}
-            {% assign day_token = day_string | prepend: '|' | append: '|' %}
-            <span
-              class="activity-day{% if active_days contains day_token %} is-active{% endif %}{% if duplicate_days contains day_token %} is-double{% endif %}"
-              title="{% if active_days contains day_token %}Updated on {{ latest_post.date | date: '%B' }} {{ day }}{% else %}No update{% endif %}"
-            ></span>
+        <div class="activity-month-axis" aria-hidden="true">
+          <span></span>
+          {% for month_name in month_names %}
+            <span>{{ month_name | slice: 0, 1 }}</span>
           {% endfor %}
         </div>
+        {% for year in (oldest_year..latest_year) %}
+          <div class="activity-year-row" aria-label="Monthly writing activity in {{ year }}">
+            <span class="activity-year-label">{{ year }}</span>
+            {% for month_name in month_names %}
+              {% assign month = forloop.index %}
+              {% assign month_count = 0 %}
+              {% assign month_string = month | prepend: '0' | slice: -2, 2 %}
+              {% for post in site.posts %}
+                {% assign post_year = post.date | date: '%Y' | plus: 0 %}
+                {% assign post_month = post.date | date: '%m' %}
+                {% if post_year == year and post_month == month_string %}
+                  {% assign month_count = month_count | plus: 1 %}
+                {% endif %}
+              {% endfor %}
+              {% assign heat_class = '' %}
+              {% if month_count == 1 %}
+                {% assign heat_class = ' is-low' %}
+              {% elsif month_count == 2 %}
+                {% assign heat_class = ' is-mid' %}
+              {% elsif month_count > 2 %}
+                {% assign heat_class = ' is-high' %}
+              {% endif %}
+              <span class="activity-month-cell{{ heat_class }}" title="{{ month_name }} {{ year }}: {{ month_count }} posts">
+                {% if month_count > 0 %}
+                  <span class="activity-month-count">{{ month_count }}</span>
+                {% endif %}
+              </span>
+            {% endfor %}
+          </div>
+        {% endfor %}
       </div>
       <div class="activity-legend" aria-hidden="true">
         <span>Less</span>
