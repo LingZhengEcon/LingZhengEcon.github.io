@@ -81,6 +81,28 @@ ninja.data = [{
             window.location.href = "/blog/2026/%E7%9B%B8%E6%8B%A5%E7%9A%84%E4%B8%80%E5%A4%A9.md/";
           
         },
+      },{id: "post-如果这是一场选举",
+        
+          title: "如果这是一场选举",
+        
+        description: "鹅社书店艺术馆/30/11/2025",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/election/";
+          
+        },
+      },{id: "post-武汉地铁",
+        
+          title: "武汉地铁",
+        
+        description: "鹅社书店艺术馆/2025.11.28",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/wuhan-metro/";
+          
+        },
       },{id: "books-the-godfather",
           title: 'The Godfather',
           description: "",
