@@ -8,7 +8,7 @@ description: Poems, economic essays, reading notes, and ordinary fragments.
 _styles: |
   body.blog-desktop-page {
     overflow-x: hidden;
-    background: #8aa167;
+    background: #fff;
   }
 
   body.blog-desktop-page .container.mt-5 {
@@ -47,12 +47,8 @@ _styles: |
     transform: translateX(-50%);
     border: 0;
     border-radius: 0;
-    background:
-      linear-gradient(90deg, rgba(255, 255, 255, 0.54), rgba(255, 255, 255, 0.06) 28%, rgba(255, 255, 255, 0.1) 70%),
-      linear-gradient(171deg, rgba(255, 225, 151, 0.8) 0 16%, transparent 16.2% 100%),
-      linear-gradient(72deg, transparent 0 58%, rgba(156, 192, 205, 0.5) 58.2% 74%, transparent 74.2% 100%),
-      linear-gradient(115deg, #d8c2a2 0 23%, #f0eadf 24% 42%, #9cb672 43% 64%, #6f914f 65% 100%);
-    box-shadow: 0 22px 70px rgba(17, 24, 39, 0.16);
+    background: #fff;
+    box-shadow: none;
     color: var(--desktop-ink);
     isolation: isolate;
   }
@@ -63,22 +59,15 @@ _styles: |
     inset: 0;
     z-index: -1;
     background:
-      linear-gradient(101deg, transparent 0 25%, rgba(86, 62, 39, 0.34) 25.3% 26.1%, transparent 26.4% 42%, rgba(78, 62, 48, 0.28) 42.3% 43%, transparent 43.3%),
-      repeating-linear-gradient(98deg, rgba(47, 57, 52, 0.12) 0 2px, transparent 2px 38px);
-    opacity: 0.48;
-    mix-blend-mode: multiply;
+      linear-gradient(rgba(17, 24, 39, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17, 24, 39, 0.025) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.55;
+    mix-blend-mode: normal;
   }
 
   .blog-desktop::after {
-    content: "";
-    position: absolute;
-    inset: auto -8% -12% 22%;
-    height: 35%;
-    z-index: -1;
-    background:
-      linear-gradient(172deg, transparent 0 12%, rgba(78, 104, 52, 0.62) 12.2% 46%, transparent 46.2%),
-      linear-gradient(18deg, rgba(92, 128, 58, 0.62) 0 36%, transparent 36.2%);
-    filter: blur(1px);
+    display: none;
   }
 
   .desktop-widgets {
@@ -94,15 +83,15 @@ _styles: |
 
   .desktop-widget {
     overflow: hidden;
-    border: 1px solid var(--desktop-line);
-    border-radius: 20px;
-    background: var(--desktop-glass);
-    box-shadow: 0 18px 38px rgba(31, 41, 55, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.72);
-    backdrop-filter: blur(22px) saturate(1.25);
+    border: 1px solid rgba(17, 24, 39, 0.08);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 14px 32px rgba(17, 24, 39, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(18px) saturate(1.1);
   }
 
   .activity-widget {
-    padding: 0.95rem 1rem 0.9rem;
+    padding: 0.9rem 0.95rem 0.86rem;
   }
 
   .widget-kicker {
@@ -116,55 +105,90 @@ _styles: |
 
   .activity-head {
     display: flex;
-    align-items: end;
+    align-items: baseline;
     justify-content: space-between;
     gap: 1rem;
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.72rem;
   }
 
   .activity-count {
     margin: 0;
-    font-size: 2rem;
-    font-weight: 780;
-    line-height: 0.95;
+    font-size: 0.95rem;
+    font-weight: 760;
+    line-height: 1.2;
   }
 
   .activity-month {
-    margin: 0 0 0.18rem;
+    margin: 0;
     color: var(--desktop-muted);
-    font-size: 0.9rem;
+    font-size: 0.78rem;
     font-weight: 650;
   }
 
-  .activity-weekdays,
-  .activity-grid {
+  .activity-map {
     display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 0.22rem;
+    grid-template-columns: 1.35rem minmax(0, 1fr);
+    gap: 0.4rem;
+    align-items: start;
   }
 
   .activity-weekdays {
-    margin-bottom: 0.32rem;
+    display: grid;
+    grid-template-rows: repeat(7, 0.72rem);
+    gap: 0.22rem;
     color: rgba(32, 33, 36, 0.46);
-    font-size: 0.66rem;
+    font-size: 0.58rem;
     font-weight: 700;
-    text-align: center;
+    line-height: 0.72rem;
+    text-align: right;
+  }
+
+  .activity-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(7, 0.72rem);
+    grid-auto-columns: 0.72rem;
+    gap: 0.22rem;
+    overflow: hidden;
   }
 
   .activity-day {
-    aspect-ratio: 1;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.55);
-    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+    width: 0.72rem;
+    height: 0.72rem;
+    border-radius: 2.5px;
+    background: #ebedf0;
+    box-shadow: inset 0 0 0 1px rgba(27, 31, 36, 0.04);
   }
 
   .activity-day.is-active {
-    background: #1688e8;
-    box-shadow: 0 4px 10px rgba(22, 136, 232, 0.26), inset 0 0 0 1px rgba(255, 255, 255, 0.34);
+    background: #40c463;
+    box-shadow: inset 0 0 0 1px rgba(27, 31, 36, 0.05);
   }
 
   .activity-day.is-double {
-    background: linear-gradient(135deg, #1688e8 0 48%, #ff9d45 49% 100%);
+    background: #216e39;
+  }
+
+  .activity-legend {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.28rem;
+    margin-top: 0.7rem;
+    color: rgba(32, 33, 36, 0.48);
+    font-size: 0.62rem;
+  }
+
+  .activity-legend span:not(.activity-scale) {
+    line-height: 1;
+  }
+
+  .activity-scale {
+    width: 0.62rem;
+    height: 0.62rem;
+    border-radius: 2px;
+    background: var(--scale-color);
+    box-shadow: inset 0 0 0 1px rgba(27, 31, 36, 0.04);
   }
 
   .note-widget {
@@ -702,21 +726,31 @@ _styles: |
     <section class="desktop-widget activity-widget" aria-label="Recent writing calendar">
       <p class="widget-kicker">Writing activity</p>
       <div class="activity-head">
-        <p class="activity-count">{{ site.posts | size }}</p>
+        <p class="activity-count">{{ site.posts | size }} posts</p>
         <p class="activity-month">{{ latest_post.date | date: '%B %Y' }}</p>
       </div>
-      <div class="activity-weekdays" aria-hidden="true">
-        <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+      <div class="activity-map">
+        <div class="activity-weekdays" aria-hidden="true">
+          <span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span>
+        </div>
+        <div class="activity-grid" aria-label="Dates with blog updates in {{ latest_post.date | date: '%B %Y' }}">
+          {% for day in (1..35) %}
+            {% assign day_string = day | prepend: '0' | slice: -2, 2 %}
+            {% assign day_token = day_string | prepend: '|' | append: '|' %}
+            <span
+              class="activity-day{% if active_days contains day_token %} is-active{% endif %}{% if duplicate_days contains day_token %} is-double{% endif %}"
+              title="{% if active_days contains day_token %}Updated on {{ latest_post.date | date: '%B' }} {{ day }}{% else %}No update{% endif %}"
+            ></span>
+          {% endfor %}
+        </div>
       </div>
-      <div class="activity-grid" aria-label="Dates with blog updates in {{ latest_post.date | date: '%B %Y' }}">
-        {% for day in (1..35) %}
-          {% assign day_string = day | prepend: '0' | slice: -2, 2 %}
-          {% assign day_token = day_string | prepend: '|' | append: '|' %}
-          <span
-            class="activity-day{% if active_days contains day_token %} is-active{% endif %}{% if duplicate_days contains day_token %} is-double{% endif %}"
-            title="{% if active_days contains day_token %}Updated on {{ latest_post.date | date: '%B' }} {{ day }}{% else %}No update{% endif %}"
-          ></span>
-        {% endfor %}
+      <div class="activity-legend" aria-hidden="true">
+        <span>Less</span>
+        <span class="activity-scale" style="--scale-color: #ebedf0"></span>
+        <span class="activity-scale" style="--scale-color: #9be9a8"></span>
+        <span class="activity-scale" style="--scale-color: #40c463"></span>
+        <span class="activity-scale" style="--scale-color: #216e39"></span>
+        <span>More</span>
       </div>
     </section>
 
