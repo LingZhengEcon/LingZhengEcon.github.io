@@ -61,11 +61,16 @@ ul.task-list input[type="checkbox"] {
   .more-info {
     margin-bottom: 5px;
     margin-top: 5px;
-    font-family: monospace;
 
     p {
       display: inline-block;
       margin: 0;
+    }
+
+    .profile-credit {
+      color: var(--global-text-color-light);
+      font-size: 0.78rem;
+      line-height: 1.35;
     }
   }
 }
