@@ -59,6 +59,13 @@
     color: var(--global-text-color);
   }
 
+  .navbar-brand.title {
+    font-family: "Cormorant Garamond", "Roboto Slab", Georgia, serif;
+    font-size: 1.45rem;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
   .navbar-nav .nav-item .nav-link {
     color: var(--global-text-color);
 
