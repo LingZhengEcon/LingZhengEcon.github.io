@@ -2,6 +2,7 @@
 layout: default
 ---
 {% assign recent_news = site.news | sort: 'date' | reverse | first %}
+{% assign ai_post = site.posts | where: 'title', 'Economic Research in the Era of AI' | first %}
 
 <div class="minimal-home">
   <section class="home-identity" aria-label="Homepage navigation">
@@ -20,11 +21,29 @@ layout: default
     </nav>
   </section>
 
-  <p class="home-edition" aria-hidden="true">Academic homepage · {{ site.time | date: '%Y' }}</p>
+  <div class="home-tools">
+    <p class="home-edition" aria-hidden="true">Academic homepage · {{ site.time | date: '%Y' }}</p>
+    {% if site.enable_darkmode %}
+      <button id="light-toggle" class="home-theme-toggle" title="Change theme" aria-label="Change color theme">
+        <i class="fa-half-sun-moon" id="light-toggle-system"></i>
+        <i class="fa-solid fa-moon" id="light-toggle-dark"></i>
+        <i class="fa-solid fa-sun" id="light-toggle-light"></i>
+      </button>
+    {% endif %}
+  </div>
 
-  <figure class="home-portrait">
-    <img src="{{ '/assets/img/portrait-cutout.png' | relative_url }}" alt="Illustrated portrait of Ling Zheng" width="1254" height="1254">
-  </figure>
+  <div class="home-character">
+    <aside
+      class="home-speech"
+      data-ai-url="{% if ai_post %}{{ ai_post.url | relative_url }}{% endif %}"
+      role="status"
+      aria-live="polite"
+      hidden
+    ></aside>
+    <figure class="home-portrait">
+      <img src="{{ '/assets/img/portrait-cutout.png' | relative_url }}" alt="Illustrated portrait of Ling Zheng" width="1254" height="1254">
+    </figure>
+  </div>
 
   <section class="home-lower" aria-label="News and links">
     <div class="home-news">

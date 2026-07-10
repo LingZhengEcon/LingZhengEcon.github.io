@@ -31,7 +31,7 @@
   width: 760px;
 
   h1 {
-    margin: 0 0 23px;
+    margin: 0 0 34px;
     font-family: "Cormorant Garamond", "Iowan Old Style", Baskerville, Georgia, serif;
     font-size: 2rem;
     font-weight: 500;
@@ -42,7 +42,7 @@
 
 .home-hand-note {
   display: block;
-  margin: 0 0 48px 1px;
+  margin: 0 0 60px 1px;
   color: #555955;
   font-family: "Caveat", "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
   font-size: 1.05rem;
@@ -128,10 +128,16 @@
   color: #765f8b;
 }
 
-.home-edition {
+.home-tools {
   position: absolute;
   top: 65px;
   right: 76px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.home-edition {
   margin: 0;
   color: var(--home-quiet);
   font-size: 0.58rem;
@@ -139,17 +145,92 @@
   text-transform: uppercase;
 }
 
-.home-portrait {
+.home-theme-toggle {
+  width: 24px !important;
+  height: 24px !important;
+  color: var(--home-quiet) !important;
+  font-size: 0.72rem;
+  transform: none !important;
+
+  &:hover {
+    color: var(--home-ink) !important;
+  }
+}
+
+.home-character {
   position: absolute;
   right: 9.5vw;
   bottom: 176px;
   width: 338px;
+}
+
+.home-portrait {
   margin: 0;
 
   img {
     display: block;
     width: 100%;
     height: auto;
+  }
+}
+
+.home-speech {
+  position: absolute;
+  z-index: 3;
+  top: -52px;
+  right: -88px;
+  width: 270px;
+  min-height: 112px;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 25px 31px 28px;
+  border: 1.5px solid var(--home-ink);
+  border-radius: 53% 47% 49% 51% / 47% 52% 48% 53%;
+  color: var(--home-ink);
+  background: var(--home-paper);
+  opacity: 0;
+  transform: translate3d(0, 10px, 0) rotate(-4deg) scale(0.72);
+  transform-origin: 30% 100%;
+  transition:
+    opacity 0.32s ease,
+    transform 0.58s cubic-bezier(0.2, 1.45, 0.35, 1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -19px;
+    left: 49px;
+    width: 30px;
+    height: 27px;
+    border-right: 1.5px solid var(--home-ink);
+    border-bottom: 1.5px solid var(--home-ink);
+    background: var(--home-paper);
+    transform: skew(-22deg) rotate(34deg);
+  }
+
+  &.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(-1.2deg) scale(1);
+  }
+
+  a,
+  span {
+    position: relative;
+    z-index: 1;
+    color: inherit;
+    font-family: "Caveat", "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
+    font-size: 1.13rem;
+    line-height: 1.18;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
   }
 }
 
@@ -303,15 +384,35 @@ html[data-theme="dark"] .minimal-home {
     }
   }
 
-  .home-edition {
+  .home-tools {
     top: 42px;
     right: 28px;
   }
 
-  .home-portrait {
+  .home-character {
     right: 4vw;
     bottom: 248px;
     width: 221px;
+  }
+
+  .home-speech {
+    top: -78px;
+    right: 3px;
+    width: 210px;
+    min-height: 90px;
+    padding: 20px 25px 23px;
+
+    &::before {
+      bottom: -15px;
+      left: 38px;
+      width: 25px;
+      height: 22px;
+    }
+
+    a,
+    span {
+      font-size: 1rem;
+    }
   }
 
   .home-lower {
@@ -338,19 +439,33 @@ html[data-theme="dark"] .minimal-home {
     padding-top: 44px;
   }
 
-  .home-edition {
+  .home-tools {
     top: 45px;
   }
 
-  .home-portrait {
+  .home-character {
     bottom: 154px;
     width: 300px;
+  }
+
+  .home-speech {
+    top: -72px;
+    right: -65px;
+    width: 240px;
+    min-height: 96px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .home-nav a,
   .home-link-row a {
+    transition: none;
+  }
+
+  .home-speech,
+  .home-speech.is-visible {
+    opacity: 1;
+    transform: rotate(-1.2deg);
     transition: none;
   }
 }
