@@ -1,91 +1,55 @@
 ---
 layout: default
 ---
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
+{% assign recent_news = site.news | sort: 'date' | reverse | first %}
 
-  <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
-      </div>
-    {% endif %}
+<div class="minimal-home">
+  <section class="home-identity" aria-label="Homepage navigation">
+    <h1>Ling Zheng</h1>
+    <p class="home-hand-note" aria-label="I'm an economics master's student working across theory and empirical research.">
+      <span>I’m</span><span>an economics</span><span>master’s student</span><span>working</span><span>across</span><span>theory</span
+      ><span>and empirical research.</span>
+    </p>
 
-    <div class="clearfix">{{ content }}</div>
+    <nav class="home-nav" aria-label="Primary navigation">
+      <a class="home-nav-about" href="{{ '/' | relative_url }}" aria-current="page">About</a>
+      <a class="home-nav-research" href="{{ '/publications/' | relative_url }}">Research</a>
+      <a class="home-nav-blog" href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a class="home-nav-goods" href="{{ '/public-goods/' | relative_url }}">Public Goods</a>
+      <a class="home-nav-cv" href="{{ '/cv/' | relative_url }}">CV</a>
+    </nav>
+  </section>
 
-    <!-- News -->
-    {% if page.announcements and page.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
-      {% include news.liquid limit=true %}
-    {% endif %}
+  <p class="home-edition" aria-hidden="true">Academic homepage · {{ site.time | date: '%Y' }}</p>
 
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">
-          {% social_links %}
-          <a
-            class="wechat-social-link"
-            href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzg3Mzg2NDYzNQ==#wechat_redirect"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WeChat"
-          >
-            <img src="{{ '/assets/img/socials/wechat.png' | relative_url }}" alt="WeChat">
-          </a>
+  <figure class="home-portrait">
+    <img src="{{ '/assets/img/portrait-cutout.png' | relative_url }}" alt="Illustrated portrait of Ling Zheng" width="1254" height="1254">
+  </figure>
+
+  <section class="home-lower" aria-label="News and links">
+    <div class="home-news">
+      <p class="home-label">News</p>
+      {% if recent_news %}
+        <div class="home-news-line">
+          <time datetime="{{ recent_news.date | date: '%Y-%m-%d' }}">{{ recent_news.date | date: '%Y.%m.%d' }}</time>
+          <span>{{ recent_news.content | strip_html | strip_newlines }}</span>
         </div>
+      {% endif %}
+    </div>
 
-        <div class="contact-note">{{ site.contact_note }}</div>
+    <div class="home-links">
+      <p class="home-label">Links</p>
+      <div class="home-link-row">
+        <a href="mailto:{{ site.data.socials.email }}">Email</a>
+        <a href="{{ site.data.socials.X.url }}" target="_blank" rel="noopener noreferrer">X</a>
+        <a href="{{ site.data.socials.ig.url }}" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a
+          href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzg3Mzg2NDYzNQ==#wechat_redirect"
+          target="_blank"
+          rel="noopener noreferrer"
+          >WeChat</a
+        >
       </div>
-    {% endif %}
-
-    <!-- Latest posts -->
-    {% if page.latest_posts and page.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-      </h2>
-      {% include latest_posts.liquid %}
-    {% endif %}
-
-    <!-- Selected papers -->
-    {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
-      {% include selected_papers.liquid %}
-    {% endif %}
-
-    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
-      {% include newsletter.liquid center=true %}
-    {% endif %}
-  </article>
+    </div>
+  </section>
 </div>

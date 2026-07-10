@@ -1,0 +1,360 @@
+/*******************************************************************************
+ * Minimal homepage
+ ******************************************************************************/
+
+.minimal-home-body {
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.minimal-home-main {
+  min-height: 100dvh;
+}
+
+.minimal-home {
+  --home-paper: #fbfaf7;
+  --home-ink: #202323;
+  --home-quiet: #777b79;
+  --home-rule: #deddd7;
+
+  position: relative;
+  min-height: 100dvh;
+  padding: 64px 76px 38px;
+  overflow: hidden;
+  color: var(--home-ink);
+  background: var(--home-paper);
+}
+
+.home-identity {
+  position: relative;
+  z-index: 2;
+  width: 760px;
+
+  h1 {
+    margin: 0 0 23px;
+    font-family: "Cormorant Garamond", "Iowan Old Style", Baskerville, Georgia, serif;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+}
+
+.home-hand-note {
+  display: block;
+  margin: 0 0 48px 1px;
+  color: #555955;
+  font-family: "Caveat", "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  letter-spacing: 0.012em;
+  white-space: nowrap;
+  transform: rotate(-1.1deg);
+  transform-origin: left center;
+
+  span {
+    display: inline-block;
+    margin-right: 0.22em;
+    color: inherit;
+  }
+
+  span:nth-child(2) {
+    transform: rotate(0.8deg) translateY(1px);
+  }
+
+  span:nth-child(3) {
+    transform: rotate(-1.4deg) translateY(-1px);
+  }
+
+  span:nth-child(5) {
+    transform: rotate(1.1deg) translateY(1px);
+  }
+
+  span:nth-child(7) {
+    transform: rotate(-0.7deg);
+  }
+}
+
+.home-nav {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+
+  a {
+    position: relative;
+    font-size: 0.96rem;
+    line-height: 1.2;
+    text-decoration: none;
+    transition:
+      opacity 0.2s ease,
+      transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -3px;
+      left: 0;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &[aria-current="page"]::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.home-nav-about {
+  color: #4c78a0;
+}
+
+.home-nav-research {
+  color: #a87519;
+}
+
+.home-nav-blog {
+  color: #a14f45;
+}
+
+.home-nav-goods {
+  color: #5f7c61;
+}
+
+.home-nav-cv {
+  color: #765f8b;
+}
+
+.home-edition {
+  position: absolute;
+  top: 65px;
+  right: 76px;
+  margin: 0;
+  color: var(--home-quiet);
+  font-size: 0.58rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.home-portrait {
+  position: absolute;
+  right: 9.5vw;
+  bottom: 176px;
+  width: 338px;
+  margin: 0;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.home-lower {
+  position: absolute;
+  right: 76px;
+  bottom: 38px;
+  left: 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 80px;
+  align-items: start;
+  padding-top: 16px;
+  border-top: 1px solid var(--home-rule);
+}
+
+.home-label {
+  margin: 0 0 10px;
+  color: var(--home-quiet);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.home-news-line {
+  display: grid;
+  grid-template-columns: 86px minmax(0, 590px);
+  gap: 20px;
+  color: var(--home-ink);
+  font-family: "Cormorant Garamond", "Iowan Old Style", Baskerville, Georgia, serif;
+  font-size: 0.87rem;
+  line-height: 1.45;
+
+  time {
+    padding-top: 3px;
+    color: var(--home-quiet);
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 0.62rem;
+  }
+}
+
+.home-links {
+  min-width: 265px;
+}
+
+.home-link-row {
+  display: flex;
+  gap: 20px;
+
+  a {
+    color: var(--home-ink);
+    font-size: 0.77rem;
+    text-decoration: none;
+    transition:
+      color 0.2s ease,
+      transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-nav a:hover,
+  .home-link-row a:hover {
+    opacity: 0.72;
+    text-decoration: none;
+    transform: translateX(3px);
+  }
+
+  .home-nav-about:hover {
+    color: #4c78a0;
+  }
+
+  .home-nav-research:hover {
+    color: #a87519;
+  }
+
+  .home-nav-blog:hover {
+    color: #a14f45;
+  }
+
+  .home-nav-goods:hover {
+    color: #5f7c61;
+  }
+
+  .home-nav-cv:hover {
+    color: #765f8b;
+  }
+
+  .home-link-row a:hover {
+    color: var(--home-ink);
+  }
+
+  .home-nav a:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+html[data-theme="dark"] .minimal-home {
+  --home-paper: #191a19;
+  --home-ink: #ecebe5;
+  --home-quiet: #a2a5a1;
+  --home-rule: #393b39;
+
+  .home-hand-note {
+    color: #c2c4be;
+  }
+
+  .home-nav-about {
+    color: #8eb7d7;
+  }
+
+  .home-nav-research {
+    color: #deb663;
+  }
+
+  .home-nav-blog {
+    color: #d9897f;
+  }
+
+  .home-nav-goods {
+    color: #91b495;
+  }
+
+  .home-nav-cv {
+    color: #b4a0c9;
+  }
+}
+
+@media (max-width: 760px) {
+  .minimal-home {
+    min-height: 920px;
+    padding: 40px 28px 28px;
+  }
+
+  .home-identity {
+    width: min(100%, 480px);
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 1.85rem;
+    }
+  }
+
+  .home-hand-note {
+    max-width: 320px;
+    margin-bottom: 40px;
+    font-size: 1rem;
+    white-space: normal;
+
+    span {
+      margin-right: 0.18em;
+    }
+  }
+
+  .home-edition {
+    top: 42px;
+    right: 28px;
+  }
+
+  .home-portrait {
+    right: 4vw;
+    bottom: 248px;
+    width: 221px;
+  }
+
+  .home-lower {
+    right: 28px;
+    bottom: 28px;
+    left: 28px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .home-news-line {
+    grid-template-columns: 68px 1fr;
+    gap: 10px;
+  }
+
+  .home-links {
+    min-width: 0;
+  }
+}
+
+@media (max-height: 720px) and (min-width: 761px) {
+  .minimal-home {
+    min-height: 720px;
+    padding-top: 44px;
+  }
+
+  .home-edition {
+    top: 45px;
+  }
+
+  .home-portrait {
+    bottom: 154px;
+    width: 300px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-nav a,
+  .home-link-row a {
+    transition: none;
+  }
+}
+
+.minimal-home-body #back-to-top {
+  display: none;
+}
