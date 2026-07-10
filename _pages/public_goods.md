@@ -151,15 +151,12 @@ _styles: |
         <ul class="goods-list">
           <li class="goods-item">
             <a href="{{ '/theory_paper_skills/' | relative_url }}">Theory Paper Reading Workflow</a>
-            <p>A structured workflow for reading theory papers from cover to cover and producing reusable LaTeX notes.</p>
-          </li>
-          <li class="goods-item">
-            <a href="{{ '/assets/pdf/bayesian_persuasion_notes.pdf' | relative_url }}">Kamenica and Gentzkow (2011) Notes</a>
-            <p>A tested output of the theory-paper workflow.</p>
-          </li>
-          <li class="goods-item">
-            <a href="{{ '/assets/pdf/hatfield_milgrom_notes.pdf' | relative_url }}">Hatfield and Milgrom (2005) Notes</a>
-            <p>A second test case for matching and mechanism design reading.</p>
+            <p>
+              A structured workflow for reading theory papers from cover to cover and producing reusable LaTeX notes. Examples:
+              <a href="{{ '/assets/pdf/bayesian_persuasion_notes.pdf' | relative_url }}">Kamenica and Gentzkow (2011)</a>
+              and
+              <a href="{{ '/assets/pdf/hatfield_milgrom_notes.pdf' | relative_url }}">Hatfield and Milgrom (2005)</a>.
+            </p>
           </li>
           <li class="goods-item">
             <a href="https://www.notion.com/product/business">Notion Business</a>
