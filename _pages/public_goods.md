@@ -38,18 +38,21 @@ _styles: |
     display: grid;
     gap: 0.35rem;
     padding-top: 0.25rem;
+    border-left: 1px solid var(--global-divider-color);
   }
 
   .goods-nav a {
     display: block;
     padding: 0.38rem 0 0.38rem 0.7rem;
+    margin-left: -1px;
     border-left: 2px solid transparent;
     color: var(--global-text-color-light);
     font-size: 0.9rem;
     text-decoration: none;
     transition:
       border-color 0.18s ease,
-      color 0.18s ease;
+      color 0.18s ease,
+      transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .goods-nav a:hover,
@@ -57,6 +60,7 @@ _styles: |
     border-left-color: var(--global-theme-color);
     color: var(--global-theme-color);
     text-decoration: none;
+    transform: translateX(3px);
   }
 
   .goods-sections {
@@ -90,6 +94,10 @@ _styles: |
     border: 1px solid var(--global-divider-color);
     border-radius: 8px;
     background: var(--global-card-bg-color);
+    transition:
+      transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.22s ease,
+      box-shadow 0.32s ease;
   }
 
   .goods-item a {
@@ -114,6 +122,14 @@ _styles: |
     font-style: italic;
   }
 
+  @media (hover: hover) and (pointer: fine) {
+    .goods-item:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--global-theme-color) 35%, var(--global-divider-color));
+      box-shadow: 0 11px 24px rgba(0, 0, 0, 0.045);
+    }
+  }
+
   @media (max-width: 768px) {
     .goods-layout {
       grid-template-columns: 1fr;
@@ -125,6 +141,7 @@ _styles: |
       gap: 0.2rem 1rem;
       padding-bottom: 1rem;
       border-bottom: 1px solid var(--global-divider-color);
+      border-left: 0;
     }
   }
 ---

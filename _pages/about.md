@@ -25,8 +25,8 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hi! I am an incoming master student at CUHK and Northwestern University (Dual Master Degree Program). Previously, I obtained my bachelor degree at Wuhan University, where I major in PPE.
+Hi! I am an incoming master’s student in the Dual Master Degree Program at the Chinese University of Hong Kong and Northwestern University. Before that, I received my bachelor’s degree in Philosophy, Politics, and Economics from Wuhan University.
 
-My research focuses on matching under complex constraints and on where axiomatic approaches apply, using choice as primitives. I occasionally conduct empirical research, mainly on labor-market topics.
+My research interests lie in matching and market design, especially matching under complex constraints and the use of choice as a primitive in axiomatic analysis. I also work on empirical questions from time to time, mainly in labor economics.
 
 You can find my detailed CV below.

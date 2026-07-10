@@ -164,6 +164,138 @@
   }
 }
 
+.blog-article {
+  --article-measure: 44rem;
+
+  .post-header {
+    max-width: 52rem;
+    margin: 0 auto 2.8rem;
+    padding: 1rem 0 1.7rem;
+  }
+
+  .post-kicker {
+    display: inline-block;
+    margin-bottom: 0.85rem;
+    color: var(--global-theme-color);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+  }
+
+  .post-title {
+    max-width: 50rem;
+    margin-bottom: 0.8rem;
+    font-size: clamp(2.75rem, 7vw, 4.7rem);
+    line-height: 0.96;
+    text-wrap: balance;
+  }
+
+  .post-deck {
+    max-width: 42rem;
+    margin: 0 0 1.15rem;
+    color: var(--global-text-color-light);
+    font-family: "Cormorant Garamond", "Roboto Slab", Georgia, serif;
+    font-size: 1.35rem;
+    line-height: 1.35;
+  }
+
+  .post-meta,
+  .post-tags {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .post-content {
+    max-width: var(--article-measure);
+    margin: 0 auto;
+  }
+
+  #markdown-content {
+    font-size: 1.04rem;
+    line-height: 1.82;
+
+    > p:first-child::first-letter {
+      float: left;
+      margin: 0.08em 0.1em 0 0;
+      color: var(--global-theme-color);
+      font-family: "Cormorant Garamond", "Roboto Slab", Georgia, serif;
+      font-size: 3.7em;
+      font-weight: 600;
+      line-height: 0.78;
+    }
+
+    h2 {
+      position: relative;
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--global-divider-color);
+      font-size: 2.25rem;
+      line-height: 1.05;
+      text-wrap: balance;
+    }
+
+    h3 {
+      margin-top: 2.6rem;
+      font-size: 1.55rem;
+    }
+
+    blockquote {
+      margin: 2.4rem 0;
+      padding: 0.35rem 0 0.35rem 1.5rem;
+      border-left-width: 2px;
+      background: transparent;
+      font-family: "Cormorant Garamond", "Roboto Slab", Georgia, serif;
+      font-size: 1.35rem;
+      line-height: 1.5;
+    }
+
+    img {
+      border-radius: 4px;
+    }
+
+    hr {
+      width: 4rem;
+      margin: 3.5rem auto;
+      border-color: var(--global-theme-color);
+    }
+
+    a:not(.btn) {
+      text-decoration-color: color-mix(in srgb, var(--global-theme-color) 45%, transparent);
+      text-underline-offset: 0.2em;
+      transition: text-decoration-color 0.2s ease;
+
+      &:hover {
+        text-decoration-color: var(--global-theme-color);
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .blog-article {
+    .post-header {
+      margin-bottom: 2rem;
+    }
+
+    .post-title {
+      font-size: 2.75rem;
+    }
+
+    .post-deck {
+      font-size: 1.18rem;
+    }
+
+    #markdown-content {
+      font-size: 1rem;
+
+      > p:first-child::first-letter {
+        font-size: 3.2em;
+      }
+    }
+  }
+}
+
 .featured-posts {
   a {
     color: var(--global-text-color-light);

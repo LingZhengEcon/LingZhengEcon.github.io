@@ -13,9 +13,15 @@ layout: default
   </style>
 {% endif %}
 
-<div class="post">
+<div class="post{% if url_beginning == '/blog/' %} blog-article{% endif %}">
   <header class="post-header">
+    {% if url_beginning == '/blog/' -%}
+      <a class="post-kicker" href="{{ '/blog/' | relative_url }}">Journal</a>
+    {%- endif %}
     <h1 class="post-title">{{ page.title }}</h1>
+    {% if url_beginning == '/blog/' and page.description %}
+      <p class="post-deck">{{ page.description }}</p>
+    {% endif %}
     <p class="post-meta">
       Created on {{ page.date | date: '%B %d, %Y' }}
       {% if page.author %}by {{ page.author }}{% endif %}

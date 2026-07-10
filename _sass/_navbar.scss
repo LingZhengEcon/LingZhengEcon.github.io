@@ -9,6 +9,17 @@
   border-bottom: 1px solid var(--global-divider-color);
   background-color: var(--global-bg-color);
   opacity: 0.95;
+  transition:
+    padding 0.28s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+
+  &.is-compact {
+    padding-top: 0.24rem;
+    padding-bottom: 0.24rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  }
 }
 
 .navbar .dropdown-menu,
@@ -67,6 +78,7 @@
   }
 
   .navbar-nav .nav-item .nav-link {
+    position: relative;
     color: var(--global-text-color);
 
     &:hover {
@@ -78,6 +90,18 @@
     background-color: inherit;
     font-weight: bolder;
     color: var(--global-theme-color);
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0.5rem;
+      bottom: 0.2rem;
+      left: 0.5rem;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(1);
+      transform-origin: left;
+    }
 
     &:hover {
       color: var(--global-hover-color);
