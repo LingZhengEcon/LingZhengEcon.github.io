@@ -42,13 +42,19 @@ _styles: |
 
   .goods-nav a {
     display: block;
-    padding: 0.38rem 0;
+    padding: 0.38rem 0 0.38rem 0.7rem;
+    border-left: 2px solid transparent;
     color: var(--global-text-color-light);
     font-size: 0.9rem;
     text-decoration: none;
+    transition:
+      border-color 0.18s ease,
+      color 0.18s ease;
   }
 
-  .goods-nav a:hover {
+  .goods-nav a:hover,
+  .goods-nav a.is-active {
+    border-left-color: var(--global-theme-color);
     color: var(--global-theme-color);
     text-decoration: none;
   }
@@ -64,7 +70,11 @@ _styles: |
 
   .goods-section h2 {
     margin: 0 0 0.85rem;
-    font-size: 1.75rem;
+    font-family: "Cormorant Garamond", "Roboto Slab", Georgia, serif;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0;
   }
 
   .goods-list {
@@ -126,7 +136,7 @@ _styles: |
 
   <div class="goods-layout">
     <nav class="goods-nav" aria-label="Public goods sections">
-      <a href="#ai-workflow">AI Workflow</a>
+      <a class="is-active" href="#ai-workflow" aria-current="true">AI Workflow</a>
       <a href="#scholars">Scholars</a>
       <a href="#lecture-notes">Lecture Notes</a>
       <a href="#templates">Templates</a>
@@ -223,3 +233,40 @@ _styles: |
 
   </div>
 </section>
+
+<script>
+  (() => {
+    const links = Array.from(document.querySelectorAll(".goods-nav a"));
+    const sections = links.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+
+    const setActiveSection = (id) => {
+      links.forEach((link) => {
+        const isActive = link.getAttribute("href") === `#${id}`;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) {
+          link.setAttribute("aria-current", "true");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    };
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visibleEntry = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+          if (visibleEntry) setActiveSection(visibleEntry.target.id);
+        },
+        {
+          rootMargin: "-22% 0px -58% 0px",
+          threshold: [0.1, 0.25, 0.5, 0.75],
+        }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+    }
+  })();
+</script>
