@@ -2,18 +2,26 @@
   const bubble = document.querySelector(".home-speech");
   if (!bubble) return;
 
-  const quotes = [
+  const ideas = [
     { text: "How can we design better mechanisms?" },
-    { text: "Will economics die in the age of AI?", url: bubble.dataset.aiUrl },
-    { text: "Theory or data? Why not both?" },
+    { text: "Theory or data? Why not both?", url: bubble.dataset.researchUrl },
+    { text: "What questions still need fieldwork?", url: bubble.dataset.blogUrl },
+    { text: "Can policy be both fair and efficient?", url: bubble.dataset.goodsUrl },
+    { text: "Need the short version? Open the CV.", url: bubble.dataset.cvUrl },
+    { text: "Want to say hi? Send a note by email.", url: bubble.dataset.emailUrl },
+    { text: "AI is a topic worth studying in its own right.", url: bubble.dataset.aiUrl },
     { text: "What makes a question worth asking?" },
-    { text: "Can a market be both fair and efficient?" },
+    { text: "Can economics stay close to the real world?" },
+    { text: "Which ideas survive contact with practice?" },
+    { text: "Where does theory still need help from data?" },
+    { text: "What happens when an idea meets a constraint?" },
   ];
-  const quote = quotes[Math.floor(Math.random() * quotes.length)];
-  const message = document.createElement(quote.url ? "a" : "span");
 
-  message.textContent = quote.text;
-  if (quote.url) message.href = quote.url;
+  const idea = ideas[Math.floor(Math.random() * ideas.length)];
+  const message = document.createElement(idea.url ? "a" : "span");
+
+  message.textContent = idea.text;
+  if (idea.url) message.href = idea.url;
 
   bubble.replaceChildren(message);
   bubble.hidden = false;
