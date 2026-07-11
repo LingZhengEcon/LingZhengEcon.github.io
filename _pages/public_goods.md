@@ -147,10 +147,6 @@ _styles: |
 ---
 
 <section class="public-goods" aria-label="Public goods">
-  <div class="public-goods-intro">
-    <p>A curated shelf of tools, notes, templates, and guidance that I find useful. Freely shared, lightly annotated, and kept close to research practice.</p>
-  </div>
-
   <div class="goods-layout">
     <nav class="goods-nav" aria-label="Public goods sections">
       <a class="is-active" href="#ai-workflow" aria-current="true">AI Workflow</a>
@@ -185,7 +181,7 @@ _styles: |
           </li>
           <li class="goods-item">
             <strong>EconRA Skill and Pipeline</strong>
-            <p>A personal workflow for economics RA tasks. Coming soon.</p>
+            <p>Available Upon Request</p>
           </li>
           <li class="goods-item">
             <a href="https://bcf.princeton.edu/events/paul-goldsmith-pinkham-mini-series-on-claude-code-for-applied-economists/">Claude Code for Applied Economists</a>

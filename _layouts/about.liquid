@@ -37,10 +37,6 @@ layout: default
       class="home-speech"
       data-ai-url="{% if ai_post %}{{ ai_post.url | relative_url }}{% endif %}"
       data-research-url="{{ '/publications/' | relative_url }}"
-      data-blog-url="{{ '/blog/' | relative_url }}"
-      data-goods-url="{{ '/public-goods/' | relative_url }}"
-      data-cv-url="{{ '/cv/' | relative_url }}"
-      data-email-url="mailto:{{ site.data.socials.email }}"
       role="status"
       aria-live="polite"
       hidden
