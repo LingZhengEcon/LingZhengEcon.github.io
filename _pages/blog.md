@@ -6,138 +6,146 @@ nav: true
 nav_order: 3
 description: Poems, economic essays, reading notes, and ordinary fragments.
 _styles: |
-  .blog-index {
-    max-width: 48rem;
+  .post-header {
+    margin-bottom: 4.5rem;
   }
 
-  .blog-list {
+  .post-header .post-title {
+    margin-bottom: 1.6rem;
+    font-family: "Cormorant Garamond", "Iowan Old Style", Baskerville, Georgia, serif;
+    font-size: clamp(3.6rem, 8vw, 5.5rem);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+  }
+
+  .post-header .post-description {
+    max-width: 48rem;
     margin: 0;
-    padding: 0;
-    list-style: none;
-    border-top: 1px solid var(--global-divider-color);
+    color: var(--global-text-color-light);
+    font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+    line-height: 1.65;
+  }
+
+  .blog-feed {
+    display: grid;
   }
 
   .blog-entry {
-    display: grid;
-    grid-template-columns: 8.2rem minmax(0, 1fr);
-    gap: 1.5rem;
-    padding: 2rem 0 2.15rem;
-    border-bottom: 1px solid var(--global-divider-color);
+    padding: 0 0 4rem;
+  }
+
+  .blog-entry + .blog-entry {
+    padding-top: 4rem;
+    border-top: 1px solid var(--global-divider-color);
   }
 
   .blog-entry-meta {
-    padding-top: 0.25rem;
-    color: var(--global-text-color-light);
-    font-size: 0.78rem;
-    line-height: 1.6;
-    letter-spacing: 0.035em;
-    text-transform: uppercase;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 1.6rem;
+    color: #a87519;
+    font-size: 0.92rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.08em;
   }
 
-  .blog-entry-meta time,
   .blog-entry-tag {
-    display: block;
+    padding: 0.45rem 0.7rem;
+    border-radius: 3px;
+    color: var(--global-text-color-light);
+    background: color-mix(in srgb, var(--global-text-color) 6%, transparent);
+    letter-spacing: 0;
   }
 
-  .blog-entry h2 {
-    margin: 0 0 0.55rem;
+  .blog-entry-title {
+    margin: 0 0 1.2rem;
     font-family: "Cormorant Garamond", "Iowan Old Style", Baskerville, Georgia, serif;
-    font-size: 1.75rem;
-    font-weight: 600;
-    line-height: 1.15;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
   }
 
-  .blog-entry h2 a {
+  .blog-entry-title a {
     color: var(--global-text-color);
     text-decoration: none;
-    background-image: linear-gradient(var(--global-theme-color), var(--global-theme-color));
-    background-repeat: no-repeat;
-    background-position: 0 100%;
-    background-size: 0 1px;
-    transition:
-      color 0.2s ease,
-      background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  .blog-entry h2 a:hover {
+  .blog-entry-title a:hover {
     color: var(--global-theme-color);
-    background-size: 100% 1px;
   }
 
   .blog-entry-summary {
-    max-width: 39rem;
-    margin: 0 0 0.7rem;
+    max-width: 52rem;
+    margin: 0 0 1.8rem;
     color: var(--global-text-color-light);
-    font-size: 0.96rem;
-    line-height: 1.7;
+    font-size: 1.05rem;
+    line-height: 1.8;
   }
 
   .blog-read-more {
-    color: var(--global-theme-color);
-    font-size: 0.84rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: #a87519;
+    font-weight: 600;
     text-decoration: none;
   }
 
-  .blog-read-more::after {
-    content: " →";
-    display: inline-block;
-    transition: transform 0.2s ease;
+  .blog-read-more span {
+    transition: transform 0.25s ease;
   }
 
   .blog-read-more:hover {
+    color: var(--global-theme-color);
     text-decoration: none;
   }
 
-  .blog-read-more:hover::after {
-    transform: translateX(3px);
+  .blog-read-more:hover span {
+    transform: translateX(4px);
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 576px) {
+    .post-header {
+      margin-bottom: 3.25rem;
+    }
+
     .blog-entry {
-      grid-template-columns: 1fr;
-      gap: 0.55rem;
-      padding: 1.55rem 0 1.7rem;
+      padding-bottom: 3rem;
     }
 
-    .blog-entry-meta time,
-    .blog-entry-tag {
-      display: inline;
-    }
-
-    .blog-entry-tag::before {
-      content: " · ";
-    }
-
-    .blog-entry h2 {
-      font-size: 1.55rem;
+    .blog-entry + .blog-entry {
+      padding-top: 3rem;
     }
   }
 ---
 
-<section class="blog-index" aria-label="Blog posts">
-  <ol class="blog-list">
-    {% for post in site.posts %}
-      <li>
-        <article class="blog-entry">
-          <div class="blog-entry-meta">
-            <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%d %b %Y' }}</time>
-            {% if post.tags and post.tags != empty %}
-              <span class="blog-entry-tag">{{ post.tags | first }}</span>
-            {% endif %}
-          </div>
-          <div>
-            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-            <p class="blog-entry-summary">
-              {% if post.description %}
-                {{ post.description }}
-              {% else %}
-                {{ post.excerpt | strip_html | strip_newlines | truncatewords: 28 }}
-              {% endif %}
-            </p>
-            <a class="blog-read-more" href="{{ post.url | relative_url }}" aria-label="Read {{ post.title }}">Read more</a>
-          </div>
-        </article>
-      </li>
-    {% endfor %}
-  </ol>
+<section class="blog-feed" aria-label="Blog posts">
+  {% for post in site.posts %}
+    <article class="blog-entry">
+      <div class="blog-entry-meta">
+        <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%d %B %Y' }}</time>
+        {% if post.tags.first %}
+          <span class="blog-entry-tag">{{ post.tags.first | capitalize }}</span>
+        {% endif %}
+      </div>
+
+      <h2 class="blog-entry-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+
+      <p class="blog-entry-summary">
+        {% if post.description %}
+          {{ post.description }}
+        {% else %}
+          {{ post.excerpt | strip_html | strip_newlines | truncatewords: 36 }}
+        {% endif %}
+      </p>
+
+      <a class="blog-read-more" href="{{ post.url | relative_url }}" aria-label="Read more: {{ post.title }}">Read more <span aria-hidden="true">→</span></a>
+    </article>
+
+{% endfor %}
+
 </section>
