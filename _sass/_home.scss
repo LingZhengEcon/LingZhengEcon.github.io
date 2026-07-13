@@ -180,15 +180,13 @@
   top: -52px;
   right: -88px;
   width: 270px;
-  min-height: 112px;
+  min-height: 138px;
   display: grid;
   place-items: center;
   margin: 0;
-  padding: 25px 31px 28px;
-  border: 1.5px solid var(--home-ink);
-  border-radius: 53% 47% 49% 51% / 47% 52% 48% 53%;
+  padding: 26px 31px 38px;
   color: var(--home-ink);
-  background: var(--home-paper);
+  background: transparent;
   opacity: 0;
   transform: translate3d(0, 10px, 0) rotate(-4deg) scale(0.72);
   transform-origin: 30% 100%;
@@ -196,32 +194,23 @@
     opacity 0.32s ease,
     transform 0.58s cubic-bezier(0.2, 1.45, 0.35, 1);
 
-  &::before {
-    content: "";
+  .home-speech-outline {
     position: absolute;
-    bottom: -8px;
-    left: 48px;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 25px 21px 0 0;
-    border-color: var(--home-ink) transparent transparent transparent;
-    transform: rotate(9deg);
-    transform-origin: top left;
-  }
+    inset: 0;
+    z-index: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 50px;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 21px 17px 0 0;
-    border-color: var(--home-paper) transparent transparent transparent;
-    transform: rotate(9deg);
-    transform-origin: top left;
+    path {
+      fill: var(--home-paper);
+      stroke: currentColor;
+      stroke-width: 2.3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vector-effect: non-scaling-stroke;
+    }
   }
 
   &.is-visible {
@@ -431,22 +420,8 @@ html[data-theme="dark"] .minimal-home {
     top: -78px;
     right: 3px;
     width: 210px;
-    min-height: 90px;
-    padding: 20px 25px 23px;
-
-    &::before {
-      bottom: -7px;
-      left: 38px;
-      width: 0;
-      height: 0;
-      border-width: 22px 18px 0 0;
-    }
-
-    &::after {
-      bottom: -3px;
-      left: 40px;
-      border-width: 18px 14px 0 0;
-    }
+    min-height: 112px;
+    padding: 20px 25px 31px;
 
     a,
     span {
@@ -491,7 +466,8 @@ html[data-theme="dark"] .minimal-home {
     top: -72px;
     right: -65px;
     width: 240px;
-    min-height: 96px;
+    min-height: 122px;
+    padding-bottom: 34px;
   }
 }
 
