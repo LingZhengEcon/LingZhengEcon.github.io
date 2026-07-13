@@ -60,15 +60,39 @@ layout: default
     <div class="home-links">
       <p class="home-label">Links</p>
       <div class="home-link-row">
-        <a href="mailto:{{ site.data.socials.email }}">Email</a>
-        <a href="{{ site.data.socials.X.url }}" target="_blank" rel="noopener noreferrer">X</a>
-        <a href="{{ site.data.socials.ig.url }}" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="mailto:{{ site.data.socials.email }}" aria-label="Email">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          <span>Email</span>
+        </a>
+        <a href="{{ site.data.socials.X.url }}" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+          <span>X</span>
+        </a>
+        <a href="{{ site.data.socials.ig.url }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.linkedin.com/in/lingzhengecon/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+          <span>LinkedIn</span>
+        </a>
         <a
           href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzg3Mzg2NDYzNQ==#wechat_redirect"
           target="_blank"
           rel="noopener noreferrer"
-          >WeChat</a
+          aria-label="WeChat Official Account"
+          title="WeChat Official Account"
         >
+          <img
+            class="home-link-icon-image"
+            src="{{ '/assets/img/socials/wechat.png' | relative_url }}"
+            alt=""
+            width="512"
+            height="323"
+            aria-hidden="true"
+          >
+          <span>Official Account</span>
+        </a>
       </div>
     </div>
   </section>
