@@ -53,11 +53,20 @@ _styles: |
   }
 
   .blog-entry-tag {
+    display: inline-flex;
+    align-items: center;
     padding: 0.45rem 0.7rem;
     border-radius: 3px;
     color: var(--global-text-color-light);
     background: color-mix(in srgb, var(--global-text-color) 6%, transparent);
     letter-spacing: 0;
+    text-decoration: none;
+  }
+
+  .blog-entry-tag:hover {
+    color: var(--global-theme-color);
+    text-decoration: none;
+    background: color-mix(in srgb, var(--global-theme-color) 9%, transparent);
   }
 
   .blog-entry-title {
@@ -129,7 +138,7 @@ _styles: |
       <div class="blog-entry-meta">
         <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%d %B %Y' }}</time>
         {% if post.tags.first %}
-          <span class="blog-entry-tag">{{ post.tags.first | capitalize }}</span>
+          <a class="blog-entry-tag" href="{{ post.tags.first | slugify | prepend: '/blog/tag/' | relative_url }}">{{ post.tags.first | capitalize }}</a>
         {% endif %}
       </div>
 
