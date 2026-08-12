@@ -5,6 +5,10 @@ permalink: /public-goods/
 nav: true
 nav_order: 4
 _styles: |
+  .post-header::after {
+    display: none;
+  }
+
   .public-goods {
     display: grid;
     gap: 2.3rem;
