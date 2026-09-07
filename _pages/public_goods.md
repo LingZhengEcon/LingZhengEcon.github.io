@@ -142,6 +142,32 @@ _styles: |
   .goods-list--compact {
     gap: 1rem;
   }
+  .goods-item--featured-note {
+    display: grid;
+    grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+    gap: 1.75rem;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+  .goods-cover-link {
+    display: block;
+  }
+  .goods-cover {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .goods-note-title {
+    color: var(--global-text-color);
+    font-family: "Cormorant Garamond", "Roboto Slab", Georgia, serif;
+    font-size: 1.55rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+  .goods-note-details .goods-note-action {
+    margin-top: 1rem;
+    font-size: 0.82rem;
+  }
   @media (max-width: 768px) {
     .public-goods-intro {
       margin-bottom: 2rem;
@@ -176,6 +202,15 @@ _styles: |
       font-size: 1.8rem;
     }
   }
+  @media (max-width: 480px) {
+    .goods-item--featured-note {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    .goods-cover-link {
+      max-width: 12rem;
+    }
+  }
   @media (prefers-reduced-motion: reduce) {
     .goods-nav a {
       transition: none;
@@ -189,14 +224,35 @@ _styles: |
   </div>
   <div class="goods-layout">
     <nav class="goods-nav" aria-label="Public goods sections">
-      <a class="is-active" href="#ai-workflow" aria-current="true">AI Workflow</a>
-      <a href="#lecture-notes">Lecture Notes</a>
+      <a class="is-active" href="#lecture-notes" aria-current="true">Lecture Notes</a>
+      <a href="#ai-workflow">AI Workflow</a>
       <a href="#templates">Templates</a>
       <a href="#ra-guidance">Econ RA Guidance</a>
       <a href="#phd-resources">Econ PhD Resources</a>
     </nav>
 
     <div class="goods-sections">
+      <section class="goods-section" id="lecture-notes">
+        <h2>Lecture Notes</h2>
+        <ul class="goods-list">
+          <li class="goods-item goods-item--featured-note">
+            <a class="goods-cover-link" href="https://www.dropbox.com/scl/fi/zqr9ku3c6nf1q2ojn9r4m/ECON5102_Notes_1.pdf?rlkey=x5khh0toh6o58c0x8yc6maj3u&amp;st=4te9p8oq&amp;dl=0" aria-label="Open ECON5102: Mathematics for Economic Analysis notes on Dropbox">
+              <img class="goods-cover" src="{{ '/assets/img/econ5102-notes-cover.png' | relative_url }}" alt="Cover of ECON5102: Mathematics for Economic Analysis lecture notes" width="773" height="1000" decoding="async">
+            </a>
+            <div class="goods-note-details">
+              <a class="goods-note-title" href="https://www.dropbox.com/scl/fi/zqr9ku3c6nf1q2ojn9r4m/ECON5102_Notes_1.pdf?rlkey=x5khh0toh6o58c0x8yc6maj3u&amp;st=4te9p8oq&amp;dl=0">ECON5102: Mathematics for Economic Analysis</a>
+              <p>Lecture notes · Lecturer: Duozhe Li</p>
+              <p class="goods-note-action"><a href="https://www.dropbox.com/scl/fi/zqr9ku3c6nf1q2ojn9r4m/ECON5102_Notes_1.pdf?rlkey=x5khh0toh6o58c0x8yc6maj3u&amp;st=4te9p8oq&amp;dl=0">Read notes on Dropbox <span aria-hidden="true">↗</span></a></p>
+            </div>
+          </li>
+          <li class="goods-item"><a href="https://www.overleaf.com/read/tbnhdxcwxqzp#f2e1f3">The Art of Economic Design</a><p>My incomplete notes on matching and mechanism design.</p></li>
+          <li class="goods-item goods-item--pending"><strong>Lattice Theory and Its Application in Economics</strong><span class="goods-status">Coming soon</span></li>
+          <li class="goods-item"><a href="https://github.com/paulgp/applied-methods-phd">Applied Empirical Methods</a><p>Paul Goldsmith-Pinkham's graduate applied methods materials.</p></li>
+          <li class="goods-item"><a href="https://about.peterhull.net/metrix">Grad Econometrics Slides</a><p>Peter Hull's graduate econometrics slides.</p></li>
+          <li class="goods-item"><a href="https://www.xiangsun.org/teaching">Matching and Market Design</a><p>Xiang Sun's teaching materials.</p></li>
+        </ul>
+      </section>
+
       <section class="goods-section" id="ai-workflow">
         <h2>AI Workflow</h2>
         <ul class="goods-list">
@@ -231,17 +287,6 @@ _styles: |
           </li>
         </ul>
         <p class="goods-note">I thank my mentor for sponsoring my monthly ChatGPT Plus.</p>
-      </section>
-
-      <section class="goods-section" id="lecture-notes">
-        <h2>Lecture Notes</h2>
-        <ul class="goods-list">
-          <li class="goods-item"><a href="https://www.overleaf.com/read/tbnhdxcwxqzp#f2e1f3">The Art of Economic Design</a><p>My incomplete notes on matching and mechanism design.</p></li>
-          <li class="goods-item goods-item--pending"><strong>Lattice Theory and Its Application in Economics</strong><span class="goods-status">Coming soon</span></li>
-          <li class="goods-item"><a href="https://github.com/paulgp/applied-methods-phd">Applied Empirical Methods</a><p>Paul Goldsmith-Pinkham's graduate applied methods materials.</p></li>
-          <li class="goods-item"><a href="https://about.peterhull.net/metrix">Grad Econometrics Slides</a><p>Peter Hull's graduate econometrics slides.</p></li>
-          <li class="goods-item"><a href="https://www.xiangsun.org/teaching">Matching and Market Design</a><p>Xiang Sun's teaching materials.</p></li>
-        </ul>
       </section>
 
       <section class="goods-section" id="templates">
