@@ -246,7 +246,7 @@ _styles: |
             </a>
             <div class="goods-note-details">
               <a class="goods-note-title" href="https://www.dropbox.com/scl/fi/mm4uw627aa1e6inv2l7qe/The_Art_of_Economic_Design.pdf?rlkey=oac3w9qawpldk449tfnfills6&amp;st=edulxtqb&amp;dl=0">The Art of Economic Design</a>
-              <p>My incomplete notes on matching and mechanism design.</p>
+              <p>Ongoing self-study notes on matching theory and mechanism design (But I am actually leaving this field)</p>
             </div>
           </li>
           <li class="goods-item goods-item--pending"><strong>Lattice Theory and Its Application in Economics</strong><span class="goods-status">Coming soon</span></li>
