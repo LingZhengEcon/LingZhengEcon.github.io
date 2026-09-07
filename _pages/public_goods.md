@@ -164,10 +164,6 @@ _styles: |
     font-weight: 600;
     line-height: 1.25;
   }
-  .goods-note-details .goods-note-action {
-    margin-top: 1rem;
-    font-size: 0.82rem;
-  }
   @media (max-width: 768px) {
     .public-goods-intro {
       margin-bottom: 2rem;
@@ -242,10 +238,17 @@ _styles: |
             <div class="goods-note-details">
               <a class="goods-note-title" href="https://www.dropbox.com/scl/fi/zqr9ku3c6nf1q2ojn9r4m/ECON5102_Notes_1.pdf?rlkey=x5khh0toh6o58c0x8yc6maj3u&amp;st=4te9p8oq&amp;dl=0">ECON5102: Mathematics for Economic Analysis</a>
               <p>Lecture notes · Lecturer: Duozhe Li</p>
-              <p class="goods-note-action"><a href="https://www.dropbox.com/scl/fi/zqr9ku3c6nf1q2ojn9r4m/ECON5102_Notes_1.pdf?rlkey=x5khh0toh6o58c0x8yc6maj3u&amp;st=4te9p8oq&amp;dl=0">Read notes on Dropbox <span aria-hidden="true">↗</span></a></p>
             </div>
           </li>
-          <li class="goods-item"><a href="https://www.overleaf.com/read/tbnhdxcwxqzp#f2e1f3">The Art of Economic Design</a><p>My incomplete notes on matching and mechanism design.</p></li>
+          <li class="goods-item goods-item--featured-note">
+            <a class="goods-cover-link" href="https://www.dropbox.com/scl/fi/mm4uw627aa1e6inv2l7qe/The_Art_of_Economic_Design.pdf?rlkey=oac3w9qawpldk449tfnfills6&amp;st=edulxtqb&amp;dl=0" aria-label="Open The Art of Economic Design notes on Dropbox">
+              <img class="goods-cover" src="{{ '/assets/img/art-of-economic-design-cover.png' | relative_url }}" alt="Cover of The Art of Economic Design lecture notes" width="773" height="1000" loading="lazy" decoding="async">
+            </a>
+            <div class="goods-note-details">
+              <a class="goods-note-title" href="https://www.dropbox.com/scl/fi/mm4uw627aa1e6inv2l7qe/The_Art_of_Economic_Design.pdf?rlkey=oac3w9qawpldk449tfnfills6&amp;st=edulxtqb&amp;dl=0">The Art of Economic Design</a>
+              <p>My incomplete notes on matching and mechanism design.</p>
+            </div>
+          </li>
           <li class="goods-item goods-item--pending"><strong>Lattice Theory and Its Application in Economics</strong><span class="goods-status">Coming soon</span></li>
           <li class="goods-item"><a href="https://github.com/paulgp/applied-methods-phd">Applied Empirical Methods</a><p>Paul Goldsmith-Pinkham's graduate applied methods materials.</p></li>
           <li class="goods-item"><a href="https://about.peterhull.net/metrix">Grad Econometrics Slides</a><p>Peter Hull's graduate econometrics slides.</p></li>
