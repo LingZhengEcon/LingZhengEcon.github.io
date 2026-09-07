@@ -8,153 +8,188 @@ _styles: |
   .post-header::after {
     display: none;
   }
-
   .public-goods {
-    display: grid;
-    gap: 2.3rem;
+    padding-bottom: 2rem;
   }
-
   .public-goods-intro {
-    display: grid;
-    gap: 0.75rem;
-    padding-bottom: 1.35rem;
-    border-bottom: 1px solid var(--global-divider-color);
+    margin: -0.5rem 0 3.5rem;
+    max-width: 37rem;
   }
-
   .public-goods-intro p {
-    max-width: 44rem;
-    margin: 0;
     color: var(--global-text-color-light);
     font-size: 1.02rem;
-    line-height: 1.75;
+    line-height: 1.8;
+    margin: 0;
   }
-
   .goods-layout {
     display: grid;
-    grid-template-columns: 13rem minmax(0, 1fr);
-    gap: 2rem;
+    grid-template-columns: 10rem minmax(0, 1fr);
+    gap: 3.5rem;
     align-items: start;
   }
-
   .goods-nav {
     position: sticky;
-    top: 5rem;
+    top: 6rem;
     display: grid;
-    gap: 0.35rem;
-    padding-top: 0.25rem;
-    border-left: 1px solid var(--global-divider-color);
+    gap: 0.65rem;
+    padding-top: 0.35rem;
   }
-
   .goods-nav a {
-    display: block;
-    padding: 0.38rem 0 0.38rem 0.7rem;
-    margin-left: -1px;
-    border-left: 2px solid transparent;
+    position: relative;
+    padding-left: 1rem;
     color: var(--global-text-color-light);
-    font-size: 0.9rem;
+    font-size: 0.82rem;
+    line-height: 1.5;
     text-decoration: none;
-    transition:
-      border-color 0.18s ease,
-      color 0.18s ease,
-      transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: color 0.18s ease;
   }
-
+  .goods-nav a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 0.4rem;
+    height: 1px;
+    background: transparent;
+  }
   .goods-nav a:hover,
   .goods-nav a.is-active {
-    border-left-color: var(--global-theme-color);
     color: var(--global-theme-color);
     text-decoration: none;
-    transform: translateX(3px);
   }
-
+  .goods-nav a.is-active::before {
+    background: currentColor;
+  }
   .goods-sections {
-    display: grid;
-    gap: 2rem;
+    min-width: 0;
   }
-
   .goods-section {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 6rem;
   }
-
+  .goods-section + .goods-section {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--global-divider-color);
+  }
   .goods-section h2 {
-    margin: 0 0 0.85rem;
+    margin: 0 0 1.65rem;
     font-family: "Cormorant Garamond", "Roboto Slab", Georgia, serif;
     font-size: 2rem;
     font-weight: 600;
-    line-height: 1;
+    line-height: 1.15;
     letter-spacing: 0;
   }
-
   .goods-list {
     display: grid;
-    gap: 0.85rem;
+    gap: 1.65rem;
     margin: 0;
     padding: 0;
     list-style: none;
   }
-
   .goods-item {
-    padding: 1rem 1.1rem;
-    border: 1px solid var(--global-divider-color);
-    border-radius: 8px;
-    background: var(--global-card-bg-color);
-    transition:
-      transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
-      border-color 0.22s ease,
-      box-shadow 0.32s ease;
+    margin: 0;
+    padding: 0;
   }
-
+  .goods-item > a,
+  .goods-item > strong {
+    color: var(--global-text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
   .goods-item a {
-    font-weight: 600;
     text-decoration: none;
+    text-underline-offset: 0.2em;
   }
-
   .goods-item a:hover {
+    color: var(--global-theme-color);
     text-decoration: underline;
   }
-
+  .public-goods a:focus-visible {
+    outline: 2px solid var(--global-theme-color);
+    outline-offset: 4px;
+  }
   .goods-item p {
-    margin: 0.35rem 0 0;
+    margin: 0.3rem 0 0;
     color: var(--global-text-color-light);
-    font-size: 0.94rem;
-    line-height: 1.65;
+    font-size: 0.9rem;
+    line-height: 1.75;
   }
-
+  .goods-item p a {
+    color: var(--global-text-color);
+    text-decoration: underline;
+    text-decoration-color: var(--global-divider-color);
+    font-weight: 400;
+  }
   .goods-note {
-    margin: 0 0 1rem;
+    margin: 1.8rem 0 0;
     color: var(--global-text-color-light);
+    font-size: 0.8rem;
     font-style: italic;
+    line-height: 1.7;
   }
-
-  @media (hover: hover) and (pointer: fine) {
-    .goods-item:hover {
-      transform: translateY(-2px);
-      border-color: color-mix(in srgb, var(--global-theme-color) 35%, var(--global-divider-color));
-      box-shadow: 0 11px 24px rgba(0, 0, 0, 0.045);
-    }
+  .goods-status {
+    color: var(--global-text-color-light);
+    font-size: 0.78rem;
+    font-weight: 400;
   }
-
+  .goods-item--pending {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 1rem;
+  }
+  .goods-list--compact {
+    gap: 1rem;
+  }
   @media (max-width: 768px) {
+    .public-goods-intro {
+      margin-bottom: 2rem;
+    }
     .goods-layout {
       grid-template-columns: 1fr;
+      gap: 2.5rem;
     }
-
     .goods-nav {
       position: static;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.2rem 1rem;
-      padding-bottom: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem 1.3rem;
+      padding: 0 0 1.25rem;
       border-bottom: 1px solid var(--global-divider-color);
-      border-left: 0;
+    }
+    .goods-nav a {
+      padding-left: 0;
+    }
+    .goods-nav a::before {
+      display: none;
+    }
+    .goods-nav a.is-active {
+      text-decoration: underline;
+      text-underline-offset: 0.35em;
+    }
+    .goods-section + .goods-section {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+    }
+    .goods-section h2 {
+      font-size: 1.8rem;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .goods-nav a {
+      transition: none;
     }
   }
 ---
 
 <section class="public-goods" aria-label="Public goods">
+  <div class="public-goods-intro">
+    <p>Notes, tools, and resources I use in economics research and share with others.</p>
+  </div>
   <div class="goods-layout">
     <nav class="goods-nav" aria-label="Public goods sections">
       <a class="is-active" href="#ai-workflow" aria-current="true">AI Workflow</a>
-      <a href="#scholars">Scholars</a>
       <a href="#lecture-notes">Lecture Notes</a>
       <a href="#templates">Templates</a>
       <a href="#ra-guidance">Econ RA Guidance</a>
@@ -164,7 +199,6 @@ _styles: |
     <div class="goods-sections">
       <section class="goods-section" id="ai-workflow">
         <h2>AI Workflow</h2>
-        <p class="goods-note">I thank my mentor for sponsoring my monthly ChatGPT Plus.</p>
         <ul class="goods-list">
           <li class="goods-item">
             <a href="{{ '/theory_paper_skills/' | relative_url }}">Theory Paper Reading Workflow</a>
@@ -183,9 +217,9 @@ _styles: |
             <a href="https://github.com/54yyyu/zotero-mcp">Zotero MCP</a>
             <p>A bridge I use with OpenAI Codex to manage literature workflows.</p>
           </li>
-          <li class="goods-item">
+          <li class="goods-item goods-item--pending">
             <strong>EconRA Skill and Pipeline</strong>
-            <p>Available Upon Request</p>
+            <span class="goods-status">Available upon request</span>
           </li>
           <li class="goods-item">
             <a href="https://bcf.princeton.edu/events/paul-goldsmith-pinkham-mini-series-on-claude-code-for-applied-economists/">Claude Code for Applied Economists</a>
@@ -196,23 +230,14 @@ _styles: |
             <p>Isaiah Andrews on how AI may change the production of research.</p>
           </li>
         </ul>
-      </section>
-
-      <section class="goods-section" id="scholars">
-        <h2>Scholars</h2>
-        <ul class="goods-list">
-          <li class="goods-item"><a href="https://web.stanford.edu/~alroth/">Al Roth</a><p>Market design, matching, and practical mechanism design.</p></li>
-          <li class="goods-item"><a href="https://economics.mit.edu/people/faculty/parag-pathak">Parag Pathak</a><p>Market design in education and public-sector allocation.</p></li>
-          <li class="goods-item"><a href="https://sites.google.com/site/fuhitokojimaeconomics/Fuhito-Kojima">Fuhito Kojima</a><p>Matching theory and market design.</p></li>
-          <li class="goods-item"><a href="https://eml.berkeley.edu/~fechenique/">Federico Echenique</a><p>Economic theory, choice, and matching.</p></li>
-        </ul>
+        <p class="goods-note">I thank my mentor for sponsoring my monthly ChatGPT Plus.</p>
       </section>
 
       <section class="goods-section" id="lecture-notes">
         <h2>Lecture Notes</h2>
         <ul class="goods-list">
           <li class="goods-item"><a href="https://www.overleaf.com/read/tbnhdxcwxqzp#f2e1f3">The Art of Economic Design</a><p>My incomplete notes on matching and mechanism design.</p></li>
-          <li class="goods-item"><strong>Lattice Theory and Its Application in Economics</strong><p>Coming soon.</p></li>
+          <li class="goods-item goods-item--pending"><strong>Lattice Theory and Its Application in Economics</strong><span class="goods-status">Coming soon</span></li>
           <li class="goods-item"><a href="https://github.com/paulgp/applied-methods-phd">Applied Empirical Methods</a><p>Paul Goldsmith-Pinkham's graduate applied methods materials.</p></li>
           <li class="goods-item"><a href="https://about.peterhull.net/metrix">Grad Econometrics Slides</a><p>Peter Hull's graduate econometrics slides.</p></li>
           <li class="goods-item"><a href="https://www.xiangsun.org/teaching">Matching and Market Design</a><p>Xiang Sun's teaching materials.</p></li>
@@ -221,10 +246,10 @@ _styles: |
 
       <section class="goods-section" id="templates">
         <h2>Templates</h2>
-        <ul class="goods-list">
-          <li class="goods-item"><strong>Lecture notes template</strong><p>Coming soon.</p></li>
-          <li class="goods-item"><strong>Beamer template</strong><p>Coming soon.</p></li>
-          <li class="goods-item"><strong>Working paper template</strong><p>Coming soon.</p></li>
+        <ul class="goods-list goods-list--compact">
+          <li class="goods-item goods-item--pending"><strong>Lecture notes template</strong><span class="goods-status">Coming soon</span></li>
+          <li class="goods-item goods-item--pending"><strong>Beamer template</strong><span class="goods-status">Coming soon</span></li>
+          <li class="goods-item goods-item--pending"><strong>Working paper template</strong><span class="goods-status">Coming soon</span></li>
           <li class="goods-item"><a href="https://hargaden.com/enda/nokia-3210-beamer-theme/">Nokia-style Beamer Theme</a><p>A playful beamer template with a memorable visual system.</p></li>
         </ul>
       </section>
