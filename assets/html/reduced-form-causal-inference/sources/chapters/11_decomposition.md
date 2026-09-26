@@ -169,5 +169,5 @@ $$
 ## 原文与方法参考
 
 - Ronald Oaxaca (1973), “[Male-Female Wage Differentials in Urban Labor Markets](https://inequality.stanford.edu/sites/default/files/media/_media/pdf/Classic_Media/Oaxaca_1973_Discrimination%20and%20Prejudice.pdf),” *International Economic Review* 14(3): 693–709.
-- Arik Levinson (2009), “[Technology, International Trade, and Pollution from US Manufacturing](https://faculty.georgetown.edu/aml6/pdfs%26zips/AER2009Levinson.pdf),” *American Economic Review* 99(5): 2177–2192. 用户提供的本地文件名含“2010”，正式发表年份是 2009。
+- Arik Levinson (2009), “[Technology, International Trade, and Pollution from US Manufacturing](https://faculty.georgetown.edu/aml6/pdfs%26zips/AER2009Levinson.pdf),” *American Economic Review* 99(5): 2177–2192.
 - Ben Jann (2008), “[A Stata Implementation of the Blinder–Oaxaca Decomposition](https://repec.ethz.ch/ets/papers/jann_oaxaca.pdf),” 用于核对两项、三项及参照系数的写法。
