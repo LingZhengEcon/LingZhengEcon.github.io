@@ -71,6 +71,37 @@ $$
 
 观察到的差距是 $26-21.2=4.8$。按 B 组工资关系，把大学比例换为 A 组的 60%，反事实平均工资为 $0.4\times18+0.6\times26=22.8$。因此构成项为 $22.8-21.2=1.6$，结构项为 $26-22.8=3.2$，两项合为 $4.8$。若改用 A 组工资关系，构成项是 $(0.6-0.4)(30-20)=2.0$，结构项则是 $2.8$。
 
+下面用 NumPy 把同一计算写成向量运算。`x` 的第一项是截距对应的常数 1，第二项是大学比例；`beta` 的两项分别是未上大学工资和大学工资增量。
+
+```python
+import numpy as np
+
+x_A = np.array([1.0, 0.6])
+x_B = np.array([1.0, 0.4])
+beta_A = np.array([20.0, 10.0])
+beta_B = np.array([18.0, 8.0])
+
+gap = x_A @ beta_A - x_B @ beta_B
+counterfactual = x_A @ beta_B
+composition = (x_A - x_B) @ beta_B
+structure = x_A @ (beta_A - beta_B)
+
+# 将结构部分再拆成系数项和交互项。
+coefficient = x_B @ (beta_A - beta_B)
+interaction = (x_A - x_B) @ (beta_A - beta_B)
+
+print(f"B 组系数下的反事实工资: {counterfactual:.1f}")
+print(f"两项分解: {gap:.1f} = {composition:.1f} + {structure:.1f}")
+print(
+    f"三项分解: {gap:.1f} = {composition:.1f}"
+    f" + {coefficient:.1f} + {interaction:.1f}"
+)
+np.testing.assert_allclose(gap, composition + structure)
+np.testing.assert_allclose(gap, composition + coefficient + interaction)
+```
+
+输出分别是 `22.8`、`4.8 = 1.6 + 3.2`、`4.8 = 1.6 + 2.8 + 0.4`。真实数据中，`beta_A` 和 `beta_B` 应先由各组含截距的工资回归估计；这里直接给定它们，是为了看清分解的计算顺序。
+
 ### 解释边界
 
 “已解释部分”只表示被**所选可观察特征与参照系数**核算到的差距。“未解释部分”可能包含歧视，也可能包含未测能力、样本选择、测量误差或模型设定问题；反过来，歧视如果影响教育或职业选择，也可能进入“已解释部分”。教育的回归系数本身也未必是教育的因果回报。[Jann（2008），第 1、3 页](https://repec.ethz.ch/ets/papers/jann_oaxaca.pdf)。
@@ -127,6 +158,37 @@ $$
 
 这个有限变化式是对论文指数计算思路的教学展开，**不是论文逐字采用的估计公式**。它说明了剩余项的位置，也使交互项的归属透明。若使用不同的变动顺序，各项可能不同。[Levinson（2009），第 2179–2180 页](https://faculty.georgetown.edu/aml6/pdfs%26zips/AER2009Levinson.pdf)。
 
+下面仍使用**演示数字，并非论文数据**。设两个行业的基期排放强度分别为 4 和 1，总产出从 100 增至 120，较脏行业的份额从 50% 降至 40%；观察到的总排放从 250 降至 200。
+
+```python
+import numpy as np
+
+V_0, V_1 = 100.0, 120.0
+theta_0 = np.array([0.5, 0.5])
+theta_1 = np.array([0.4, 0.6])
+z_0 = np.array([4.0, 1.0])
+P_0, P_1 = 250.0, 200.0
+
+intensity_0 = theta_0 @ z_0
+intensity_1_at_base = theta_1 @ z_0
+P_counterfactual = P_0 * (V_1 / V_0) * (intensity_1_at_base / intensity_0)
+
+scale = P_0 * (V_1 / V_0 - 1)
+composition = P_0 * (V_1 / V_0) * (
+    intensity_1_at_base / intensity_0 - 1
+)
+remainder = P_1 - P_counterfactual
+
+print(f"固定基期行业强度的反事实排放: {P_counterfactual:.0f}")
+print(
+    f"总变化: {P_1 - P_0:.0f} = {scale:.0f}"
+    f" + ({composition:.0f}) + ({remainder:.0f})"
+)
+np.testing.assert_allclose(P_1 - P_0, scale + composition + remainder)
+```
+
+输出为反事实排放 `264`，以及 `-50 = 50 + (-36) + (-64)`：规模扩大本会增加 50，行业构成转移对应减少 36，其余减少 64 被记为剩余。代码中的最后一行核对三项是否确实加总到观察到的变化。
+
 ```{admonition} “技术项”是剩余，不等于某项创新的因果效果
 :class: important
 行业内产品构成变化、不同治污方式、其他未测变化和有限变化中的交互，都可能进入剩余项。行业划分越粗，行业内构成变化越容易被误归为技术变化。论文没有用这一分解识别环境法规或技术创新的因果作用。
@@ -153,6 +215,27 @@ $$
 $$
 
 用这些系数乘各行业相对基期的净进口增量，可得与贸易增长相匹配的假想**美国国内**排放量。这不是出口国的实际排放，也不是“贸易没有增长”时美国经济的均衡结果：价格、消费与生产决策可能同时调整。作者明确把这一情景称为局部均衡的核算练习，并在结论中说明全文没有识别因果关系。[Levinson（2009），第 2187–2190 页](https://faculty.georgetown.edu/aml6/pdfs%26zips/AER2009Levinson.pdf)。
+
+同样用两个行业的**演示矩阵**计算这一调整。`solve` 在数值计算中实现上面的矩阵求解，避免显式计算逆矩阵；`net_import_change` 是相对基期的净进口增量。
+
+```python
+import numpy as np
+
+C = np.array([[0.1, 0.3], [0.2, 0.1]])
+domestic_share = np.array([0.8, 0.9])
+z_0 = np.array([4.0, 1.0])
+net_import_change = np.array([5.0, 10.0])
+
+system = np.eye(2) - np.diag(domestic_share) @ C
+total_domestic_intensity = np.linalg.solve(system.T, z_0)
+
+direct_only = z_0 @ net_import_change
+including_inputs = total_domestic_intensity @ net_import_change
+print(f"只计最终产品的直接排放: {direct_only:.2f}")
+print(f"计入国内中间投入的排放: {including_inputs:.2f}")
+```
+
+这个演示分别得到 `30.00` 和 `47.73`。第二个值较大，是因为它还计入了本例中可能被净进口替代的国内中间投入；这两个数都不是进口来源国的实际排放。
 
 ## 放在一起看
 
