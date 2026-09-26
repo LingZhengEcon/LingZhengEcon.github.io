@@ -8,21 +8,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Decomposition &#8212; Reduced-form Causal Inference</title>
-  
-  
-  
+    <title>Decomposition：从差距到反事实 &#8212; Reduced-form Causal Inference</title>
+
+
+
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  
+
   <!-- Loaded before other Sphinx assets -->
   <link href="../static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 <link href="../static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 <link href="../static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-  
+
   <link href="../static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
@@ -32,10 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../static/sphinx-design.min.css?v=95c83b7e" />
-  
+
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
@@ -57,6 +57,8 @@
     <script async="async" src="../static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/11_decomposition';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -65,30 +67,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
-  
-  
+
+
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-  
-  
+
+
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
+
   <div id="pst-scroll-pixel-helper"></div>
-  
+
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-  
+
   <input type="checkbox"
           class="sidebar-toggle"
           id="pst-primary-sidebar-checkbox"/>
   <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
+
   <input type="checkbox"
           class="sidebar-toggle"
           id="pst-secondary-sidebar-checkbox"/>
   <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
+
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
@@ -114,43 +116,43 @@
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
-  
+
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
-  
+
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-      
-      
-      
-      <div class="bd-sidebar-primary bd-sidebar">
-        
 
-  
+
+
+      <div class="bd-sidebar-primary bd-sidebar">
+
+
+
   <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
+
+
+
+
   </div>
-  
+
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
-  
-    
-  
+
+
+
 
 <a class="navbar-brand logo" href="../intro.html">
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
     <p class="title logo__title">Reduced-form Causal Inference</p>
-  
+
 </a></div>
         <div class="sidebar-primary-item">
 
@@ -165,7 +167,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        
+
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
@@ -184,46 +186,46 @@
 <li class="toctree-l1"><a class="reference internal" href="08_matching.html">Matching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_bunching.html">Bunching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_sufficient_statistics.html">Sufficient Statistics</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Decomposition</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Decomposition：从差距到反事实</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_general.html">General</a></li>
 </ul>
 
     </div>
 </nav></div>
     </div>
-  
-  
+
+
   <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-  
+
   <div id="rtd-footer-container"></div>
 
 
       </div>
-      
+
       <main id="main-content" class="bd-main" role="main">
-        
-        
+
+
 
 <div class="sbt-scroll-pixel-helper"></div>
 
           <div class="bd-content">
             <div class="bd-article-container">
-              
+
               <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
-  
+
     <div class="header-article-items__start">
-      
+
         <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
 </button></div>
-      
+
     </div>
-  
-  
+
+
     <div class="header-article-items__end">
-      
+
         <div class="header-article-item">
 
 <div class="article-header-buttons">
@@ -237,15 +239,15 @@
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
-      
-      
-      
+
+
+
       <li><a href="../sources/chapters/11_decomposition.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
-  
+
 
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
@@ -253,17 +255,17 @@
 <span class="btn__text-container">.md</span>
 </a>
 </li>
-      
-      
-      
-      
+
+
+
+
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
   title="Print to PDF"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
-  
+
 
 <span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
@@ -271,7 +273,7 @@
 <span class="btn__text-container">.pdf</span>
 </button>
 </li>
-      
+
   </ul>
 </div>
 
@@ -283,7 +285,7 @@
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
-  
+
 
 <span class="btn__icon-container">
   <i class="fas fa-expand"></i>
@@ -311,33 +313,255 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
-      
+
     </div>
-  
+
 </div>
 </div>
-              
-              
+
+
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Decomposition</h1>
+    <h1>Decomposition：从差距到反事实</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
-            
+
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oaxaca-1973">一、Oaxaca（1973）：工资差距从何而来？</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">动机与反事实</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">交互项与参照系数</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">数字例子</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">解释边界</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#levinson-2009">二、Levinson（2009）：制造业排放为何下降？</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">第一层：规模、行业构成与排放强度</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">第二层：贸易为什么需要投入产出表？</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">放在一起看</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">原文与方法参考</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
 
-              
-                
+
+
 <div id="searchbox"></div>
                 <article class="bd-article">
-                  
+
   <section class="tex2jax_ignore mathjax_ignore" id="decomposition">
-<h1>Decomposition<a class="headerlink" href="#decomposition" title="Link to this heading">#</a></h1>
+<h1>Decomposition：从差距到反事实<a class="headerlink" href="#decomposition" title="Link to this heading">#</a></h1>
+<p>分解法回答一个描述性问题：观察到的总差距，分别与哪些可观察的变化相对应？做法是<strong>固定一部分关系，改变另一部分</strong>，计算反事实，再把各项加回总差距。本章只用两篇论文学习这一思路：Oaxaca（1973）的工资差距分解，以及 Levinson（2009）的制造业污染排放分解。两者的共同点是核算差距；它们使用的模型与数据并不相同。</p>
+<section id="oaxaca-1973">
+<h2>一、Oaxaca（1973）：工资差距从何而来？<a class="headerlink" href="#oaxaca-1973" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>动机与反事实<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>设 A、B 为两个劳动者群体，<span class="math notranslate nohighlight">\(Y\)</span> 为工资，<span class="math notranslate nohighlight">\(X\)</span> 包括教育、经验等可观察特征。平均工资差距是 <span class="math notranslate nohighlight">\(\Delta=\bar Y_A-\bar Y_B\)</span>。即使两组的平均工资不同，我们仍不知道差距与<strong>劳动者特征构成</strong>、还是与<strong>相同特征对应的工资关系</strong>有关。Oaxaca 的做法是分别拟合工资方程，并用其中一组的系数给另一组的特征“定价”。<a class="reference external" href="https://inequality.stanford.edu/sites/default/files/media/_media/pdf/Classic_Media/Oaxaca_1973_Discrimination%20and%20Prejudice.pdf">Oaxaca（1973）原文</a>。</p>
+<p>对每组分别估计包含截距的线性回归：</p>
+<div class="math notranslate nohighlight">
+\[
+Y_{ig}=X_{ig}'\beta_g+\varepsilon_{ig},\qquad g\in\{A,B\}.
+\]</div>
+<p>常数 1 放在 <span class="math notranslate nohighlight">\(X\)</span> 中，截距放在 <span class="math notranslate nohighlight">\(\beta_g\)</span> 中。各组分别用普通最小二乘法拟合且包含截距时，该组样本的平均残差为零，所以<strong>样本内</strong>有 <span class="math notranslate nohighlight">\(\bar Y_g=\bar X_g'\hat\beta_g\)</span>。于是</p>
+<div class="math notranslate nohighlight">
+\[
+\hat\Delta=\bar X_A'\hat\beta_A-\bar X_B'\hat\beta_B.
+\]</div>
+<p><span class="math notranslate nohighlight">\(\bar X_A'\hat\beta_B\)</span> 是核心反事实：<strong>保持 B 组拟合出的工资关系，却换入 A 组的平均特征</strong>。在上式中加上再减去它，得到两项分解：</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned}
+\hat\Delta
+&amp;=\underbrace{(\bar X_A-\bar X_B)'\hat\beta_B}_{\text{构成／禀赋部分}}
+ +\underbrace{\bar X_A'(\hat\beta_A-\hat\beta_B)}_{\text{系数／工资结构部分}}.
+\end{aligned}
+\]</div>
+<p>第一项按 <strong>B 组系数</strong>评价两组的特征差异；第二项在 <strong>A 组平均特征</strong>上比较两套系数，包含截距差异。这是一个准确加总的代数恒等式；反事实工资是回归预测，并非真的改变了劳动者教育后的因果结果。<a class="reference external" href="https://repec.ethz.ch/ets/papers/jann_oaxaca.pdf">Jann（2008），第 2–3 页</a>。</p>
+<div class="tip admonition">
+<p class="admonition-title">直觉：从 B 组走到 A 组</p>
+<p>从 <span class="math notranslate nohighlight">\((\bar X_B,\hat\beta_B)\)</span> 出发，先将特征换成 <span class="math notranslate nohighlight">\(\bar X_A\)</span>，再将系数换成 <span class="math notranslate nohighlight">\(\hat\beta_A\)</span>。第一步对应构成项，第二步对应结构项。换一条路径，单项会变，总差距不变。</p>
+</div>
+</section>
+<section id="id2">
+<h3>交互项与参照系数<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>令 <span class="math notranslate nohighlight">\(\Delta X=\bar X_A-\bar X_B\)</span>、<span class="math notranslate nohighlight">\(\Delta\beta=\hat\beta_A-\hat\beta_B\)</span>，直接展开乘积：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\hat\Delta
+&amp;=(\bar X_B+\Delta X)'(\hat\beta_B+\Delta\beta)-\bar X_B'\hat\beta_B\\
+&amp;=\underbrace{\Delta X'\hat\beta_B}_{\text{构成}}
+ +\underbrace{\bar X_B'\Delta\beta}_{\text{系数}}
+ +\underbrace{\Delta X'\Delta\beta}_{\text{交互}}.
+\end{aligned}
+\end{split}\]</div>
+<p>这就是三项分解：特征和系数同时变化时，会多出交互项。前一节的两项分解把“系数 + 交互”合并成结构项。若改用 A 组系数评价特征差异，则</p>
+<div class="math notranslate nohighlight">
+\[
+\hat\Delta=(\bar X_A-\bar X_B)'\hat\beta_A
+ +\bar X_B'(\hat\beta_A-\hat\beta_B).
+\]</div>
+<p>两个两项式都精确加总，但把交互项分给了不同部分。因此，报告“多少差距由构成解释”时，必须同时说明所选的参照系数；也可以使用经论证的共同参照系数。仅凭代数无法决定哪套系数代表“没有歧视的工资结构”。<a class="reference external" href="https://repec.ethz.ch/ets/papers/jann_oaxaca.pdf">Jann（2008），第 2–4 页</a>。</p>
+</section>
+<section id="id3">
+<h3>数字例子<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>以下工资数字<strong>仅用于演示，不是 Oaxaca 论文的估计值</strong>。假设唯一特征是“是否上过大学”，工资单位为元／小时。</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>群体</p></th>
+<th class="head text-right"><p>未上大学的工资</p></th>
+<th class="head text-right"><p>上过大学的工资</p></th>
+<th class="head text-right"><p>上过大学比例</p></th>
+<th class="head text-right"><p>平均工资</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A</p></td>
+<td class="text-right"><p>20</p></td>
+<td class="text-right"><p>30</p></td>
+<td class="text-right"><p>60%</p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(0.4\times20+0.6\times30=26\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td class="text-right"><p>18</p></td>
+<td class="text-right"><p>26</p></td>
+<td class="text-right"><p>40%</p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(0.6\times18+0.4\times26=21.2\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>观察到的差距是 <span class="math notranslate nohighlight">\(26-21.2=4.8\)</span>。按 B 组工资关系，把大学比例换为 A 组的 60%，反事实平均工资为 <span class="math notranslate nohighlight">\(0.4\times18+0.6\times26=22.8\)</span>。因此构成项为 <span class="math notranslate nohighlight">\(22.8-21.2=1.6\)</span>，结构项为 <span class="math notranslate nohighlight">\(26-22.8=3.2\)</span>，两项合为 <span class="math notranslate nohighlight">\(4.8\)</span>。若改用 A 组工资关系，构成项是 <span class="math notranslate nohighlight">\((0.6-0.4)(30-20)=2.0\)</span>，结构项则是 <span class="math notranslate nohighlight">\(2.8\)</span>。</p>
+</section>
+<section id="id4">
+<h3>解释边界<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>“已解释部分”只表示被<strong>所选可观察特征与参照系数</strong>核算到的差距。“未解释部分”可能包含歧视，也可能包含未测能力、样本选择、测量误差或模型设定问题；反过来，歧视如果影响教育或职业选择，也可能进入“已解释部分”。教育的回归系数本身也未必是教育的因果回报。<a class="reference external" href="https://repec.ethz.ch/ets/papers/jann_oaxaca.pdf">Jann（2008），第 1、3 页</a>。</p>
+</section>
+</section>
+<section id="levinson-2009">
+<h2>二、Levinson（2009）：制造业排放为何下降？<a class="headerlink" href="#levinson-2009" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h3>第一层：规模、行业构成与排放强度<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Levinson 注意到，1987—2001 年美国制造业实际产出上升，而所研究的四种空气污染物的制造业排放下降。他要核算这种变化与制造业<strong>规模</strong>、产出向较清洁行业的<strong>构成转移</strong>、以及行业内<strong>单位产出排放强度</strong>的变化分别对应多少。<a class="reference external" href="https://faculty.georgetown.edu/aml6/pdfs%26zips/AER2009Levinson.pdf">Levinson（2009），第 2177–2179 页</a>。</p>
+<p>设行业 <span class="math notranslate nohighlight">\(i\)</span> 的产出、排放分别为 <span class="math notranslate nohighlight">\(v_i,p_i\)</span>，总产出为 <span class="math notranslate nohighlight">\(V=\sum_i v_i\)</span>。定义行业产出份额 <span class="math notranslate nohighlight">\(\theta_i=v_i/V\)</span>、排放强度 <span class="math notranslate nohighlight">\(z_i=p_i/v_i\)</span>。总排放的恒等式是</p>
+<div class="math notranslate nohighlight">
+\[
+P=\sum_i p_i=\sum_i v_i z_i=V\sum_i\theta_i z_i.
+\]</div>
+<p>取全微分，得到论文的三部分表达式：</p>
+<div class="math notranslate nohighlight">
+\[
+dP
+=\underbrace{\Bigl(\sum_i\theta_i z_i\Bigr)dV}_{\text{规模}}
+ +\underbrace{V\sum_i z_i\,d\theta_i}_{\text{构成}}
+ +\underbrace{V\sum_i\theta_i\,dz_i}_{\text{强度／技术}}.
+\]</div>
+<p>这是<strong>无穷小变化</strong>的精确微分。两个年份之间三个量一起变化时，必须指定有限变化的计算顺序，或明确交互项的归属。论文只有基期 1987 年的行业排放强度 <span class="math notranslate nohighlight">\(z_{i0}\)</span>，没有每年的 <span class="math notranslate nohighlight">\(z_{it}\)</span>，所以固定 <span class="math notranslate nohighlight">\(z_{i0}\)</span>，计算规模与构成变化对应的反事实路径，再把观察到的排放与该路径之差作为技术项的间接度量。<a class="reference external" href="https://faculty.georgetown.edu/aml6/pdfs%26zips/AER2009Levinson.pdf">Levinson（2009），第 2178–2179 页及脚注 3</a>。</p>
+<p>令 <span class="math notranslate nohighlight">\(0\)</span> 表示基期，固定基期强度的排放指数为</p>
+<div class="math notranslate nohighlight">
+\[
+Q_t^{(0)}=V_t\sum_i\theta_{it}z_{i0}.
+\]</div>
+<p>为展示与实际排放同起点的反事实，可以按基期观察排放 <span class="math notranslate nohighlight">\(P_0\)</span> 归一化：</p>
+<div class="math notranslate nohighlight">
+\[
+P_t^{\mathrm{cf}}
+=P_0\frac{Q_t^{(0)}}{Q_0^{(0)}}
+=P_0\frac{V_t}{V_0}
+\frac{\sum_i\theta_{it}z_{i0}}{\sum_i\theta_{i0}z_{i0}}.
+\]</div>
+<p>沿“先变规模、再变构成”的路径，下面的<strong>示意性有限变化分解</strong>严格加总：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+P_t-P_0
+&amp;=\underbrace{P_0\left(\frac{V_t}{V_0}-1\right)}_{\text{规模：基期构成与强度固定}}\\
+&amp;\quad+\underbrace{P_0\frac{V_t}{V_0}
+\left[\frac{\sum_i\theta_{it}z_{i0}}{\sum_i\theta_{i0}z_{i0}}-1\right]}_{\text{构成：当期规模、基期强度固定}}\\
+&amp;\quad+\underbrace{(P_t-P_t^{\mathrm{cf}})}_{\text{剩余}}.
+\end{aligned}
+\end{split}\]</div>
+<p>这个有限变化式是对论文指数计算思路的教学展开，<strong>不是论文逐字采用的估计公式</strong>。它说明了剩余项的位置，也使交互项的归属透明。若使用不同的变动顺序，各项可能不同。<a class="reference external" href="https://faculty.georgetown.edu/aml6/pdfs%26zips/AER2009Levinson.pdf">Levinson（2009），第 2179–2180 页</a>。</p>
+<div class="important admonition">
+<p class="admonition-title">“技术项”是剩余，不等于某项创新的因果效果</p>
+<p>行业内产品构成变化、不同治污方式、其他未测变化和有限变化中的交互，都可能进入剩余项。行业划分越粗，行业内构成变化越容易被误归为技术变化。论文没有用这一分解识别环境法规或技术创新的因果作用。</p>
+</div>
+</section>
+<section id="id6">
+<h3>第二层：贸易为什么需要投入产出表？<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>论文再问：净进口增长对应的产品如果在美国生产，按<strong>美国的排放系数</strong>估算，会匹配多少美国排放？仅用进口产品的直接排放系数，会漏掉生产过程中所需的中间投入。<a class="reference external" href="https://faculty.georgetown.edu/aml6/pdfs%26zips/AER2009Levinson.pdf">Levinson（2009），第 2186–2188 页</a>。</p>
+<p>令 <span class="math notranslate nohighlight">\(x\)</span> 为各行业总产出向量，<span class="math notranslate nohighlight">\(y\)</span> 为最终需求，<span class="math notranslate nohighlight">\(C\)</span> 为直接投入系数矩阵；<span class="math notranslate nohighlight">\(C_{ij}\)</span> 表示生产一单位行业 <span class="math notranslate nohighlight">\(j\)</span> 产品需要多少行业 <span class="math notranslate nohighlight">\(i\)</span> 的投入。则</p>
+<div class="math notranslate nohighlight">
+\[
+x=Cx+y
+\quad\Longrightarrow\quad
+(I-C)x=y
+\quad\Longrightarrow\quad
+x=(I-C)^{-1}y.
+\]</div>
+<p>若 <span class="math notranslate nohighlight">\(\mathbf z'\)</span> 是各行业的直接排放强度行向量，生产最终产品 <span class="math notranslate nohighlight">\(y\)</span> 所涉及的各层投入，对应的排放为 <span class="math notranslate nohighlight">\(\mathbf z'(I-C)^{-1}y\)</span>。因此 <span class="math notranslate nohighlight">\(\mathbf z'(I-C)^{-1}\)</span> 是包含中间投入的总排放系数。进一步设 <span class="math notranslate nohighlight">\(d_i\)</span> 为行业 <span class="math notranslate nohighlight">\(i\)</span> 的国内供应份额，论文只计入可能被替代的<strong>国内</strong>中间投入，使用</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf z^{*\prime}=\mathbf z'\bigl[I-\operatorname{diag}(d)C\bigr]^{-1}.
+\]</div>
+<p>用这些系数乘各行业相对基期的净进口增量，可得与贸易增长相匹配的假想<strong>美国国内</strong>排放量。这不是出口国的实际排放，也不是“贸易没有增长”时美国经济的均衡结果：价格、消费与生产决策可能同时调整。作者明确把这一情景称为局部均衡的核算练习，并在结论中说明全文没有识别因果关系。<a class="reference external" href="https://faculty.georgetown.edu/aml6/pdfs%26zips/AER2009Levinson.pdf">Levinson（2009），第 2187–2190 页</a>。</p>
+</section>
+</section>
+<section id="id7">
+<h2>放在一起看<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Oaxaca 的工资差距</p></th>
+<th class="head"><p>Levinson 的排放变化</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>观察量</p></td>
+<td><p>两组平均工资差距</p></td>
+<td><p>跨年制造业总排放变化</p></td>
+</tr>
+<tr class="row-odd"><td><p>固定的参照</p></td>
+<td><p>某组或共同的工资回归系数</p></td>
+<td><p>基期行业排放强度；贸易部分还需投入产出系数</p></td>
+</tr>
+<tr class="row-even"><td><p>构成</p></td>
+<td><p>劳动者的特征分布</p></td>
+<td><p>制造业的行业份额</p></td>
+</tr>
+<tr class="row-odd"><td><p>其他部分</p></td>
+<td><p>工资系数差异及交互</p></td>
+<td><p>产出规模、强度剩余、与进口匹配的排放</p></td>
+</tr>
+<tr class="row-even"><td><p>解释限制</p></td>
+<td><p>系数差异不自动等于歧视</p></td>
+<td><p>强度剩余不自动等于技术创新的因果作用</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>两篇论文都提示一个读法：<strong>先写出观察到的总差距，再问反事实固定了什么、改变了什么，最后检查各项是否加总以及剩余项包含什么。</strong></p>
+</section>
+<section id="id8">
+<h2>原文与方法参考<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Ronald Oaxaca (1973), “<a class="reference external" href="https://inequality.stanford.edu/sites/default/files/media/_media/pdf/Classic_Media/Oaxaca_1973_Discrimination%20and%20Prejudice.pdf">Male-Female Wage Differentials in Urban Labor Markets</a>,” <em>International Economic Review</em> 14(3): 693–709.</p></li>
+<li><p>Arik Levinson (2009), “<a class="reference external" href="https://faculty.georgetown.edu/aml6/pdfs%26zips/AER2009Levinson.pdf">Technology, International Trade, and Pollution from US Manufacturing</a>,” <em>American Economic Review</em> 99(5): 2177–2192. 用户提供的本地文件名含“2010”，正式发表年份是 2009。</p></li>
+<li><p>Ben Jann (2008), “<a class="reference external" href="https://repec.ethz.ch/ets/papers/jann_oaxaca.pdf">A Stata Implementation of the Blinder–Oaxaca Decomposition</a>,” 用于核对两项、三项及参照系数的写法。</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -361,14 +585,14 @@ document.write(`
     <script>kernelName = 'python3'</script>
 
                 </article>
-              
 
-              
-              
-              
-              
+
+
+
+
+
                 <footer class="prev-next-footer d-print-none">
-                  
+
 <div class="prev-next-area">
     <a class="left-prev"
        href="10_sufficient_statistics.html"
@@ -390,53 +614,81 @@ document.write(`
     </a>
 </div>
                 </footer>
-              
+
             </div>
-            
-            
-              
-            
+
+
+
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oaxaca-1973">一、Oaxaca（1973）：工资差距从何而来？</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">动机与反事实</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">交互项与参照系数</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">数字例子</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">解释边界</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#levinson-2009">二、Levinson（2009）：制造业排放为何下降？</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">第一层：规模、行业构成与排放强度</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">第二层：贸易为什么需要投入产出表？</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">放在一起看</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">原文与方法参考</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+
+
           </div>
           <footer class="bd-footer-content">
-            
+
 <div class="bd-footer-content__inner container">
-  
+
   <div class="footer-item">
-    
+
 <p class="component-author">
 By The Jupyter Book community
 </p>
 
   </div>
-  
+
   <div class="footer-item">
-    
+
 
   <p class="copyright">
-    
+
       © Copyright 2023.
       <br/>
-    
+
   </p>
 
   </div>
-  
+
   <div class="footer-item">
-    
+
   </div>
-  
+
   <div class="footer-item">
-    
+
   </div>
-  
+
 </div>
           </footer>
-        
+
 
       </main>
     </div>
   </div>
-  
+
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
   <script src="../static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
 <script src="../static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
