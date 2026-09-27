@@ -1,5 +1,11 @@
 # Decomposition：从差距到反事实
 
+<nav aria-label="Language selection" style="margin: 1rem 0 1.5rem;">
+  <strong>语言 / Language：</strong>
+  <a class="btn btn-sm btn-primary" href="11_decomposition.html" lang="zh" aria-current="page">中文</a>
+  <a class="btn btn-sm btn-outline-primary" href="../en/chapters/11_decomposition.html" lang="en">English</a>
+</nav>
+
 分解法回答一个描述性问题：观察到的总差距，分别与哪些可观察的变化相对应？做法是**固定一部分关系，改变另一部分**，计算反事实，再把各项加回总差距。本章只用两篇论文学习这一思路：Oaxaca（1973）的工资差距分解，以及 Levinson（2009）的制造业污染排放分解。两者的共同点是核算差距；它们使用的模型与数据并不相同。
 
 ## 一、Oaxaca（1973）：工资差距从何而来？
