@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="zh-CN" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -41,7 +41,7 @@
 <link rel="preload" as="script" href="../static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../static/documentation_options.js?v=946197a6"></script>
     <script src="../static/doctools.js?v=9a2dae69"></script>
     <script src="../static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../static/clipboard.min.js?v=a7894cd8"></script>
@@ -51,6 +51,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../static/togglebutton.js?v=b8b12719"></script>
+    <script src="../static/translations.js?v=beaddf03"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -60,12 +61,12 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/11_decomposition';</script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="General" href="12_general.html" />
     <link rel="prev" title="Sufficient Statistics" href="10_sufficient_statistics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="zh-CN"/>
   </head>
 
 
@@ -158,9 +159,9 @@
 
  <script>
  document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
+    <span class="search-button__default-text">搜索</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
    </button>
  `);
@@ -235,7 +236,7 @@
 
 
 <div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="下载此页面">
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
@@ -244,7 +245,7 @@
 
       <li><a href="../sources/chapters/11_decomposition.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
+   title="下载源文件"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
 
@@ -262,7 +263,7 @@
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
+  title="列印成 PDF"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
 
@@ -282,7 +283,7 @@
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
+  title="全屏模式"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
 
@@ -308,7 +309,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -332,7 +333,7 @@ document.write(`
         <div id="jb-print-toc">
 
             <div>
-                <h2> Contents </h2>
+                <h2> 目录 </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -363,6 +364,11 @@ document.write(`
 
   <section class="tex2jax_ignore mathjax_ignore" id="decomposition">
 <h1>Decomposition：从差距到反事实<a class="headerlink" href="#decomposition" title="Link to this heading">#</a></h1>
+<nav aria-label="Language selection" style="margin: 1rem 0 1.5rem;">
+  <strong>语言 / Language：</strong>
+  <a class="btn btn-sm btn-primary" href="11_decomposition.html" lang="zh" aria-current="page">中文</a>
+  <a class="btn btn-sm btn-outline-primary" href="../en/chapters/11_decomposition.html" lang="en">English</a>
+</nav>
 <p>分解法回答一个描述性问题：观察到的总差距，分别与哪些可观察的变化相对应？做法是<strong>固定一部分关系，改变另一部分</strong>，计算反事实，再把各项加回总差距。本章只用两篇论文学习这一思路：Oaxaca（1973）的工资差距分解，以及 Levinson（2009）的制造业污染排放分解。两者的共同点是核算差距；它们使用的模型与数据并不相同。</p>
 <section id="oaxaca-1973">
 <h2>一、Oaxaca（1973）：工资差距从何而来？<a class="headerlink" href="#oaxaca-1973" title="Link to this heading">#</a></h2>
@@ -673,7 +679,7 @@ x=(I-C)^{-1}y.
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-subtitle">上一页</p>
         <p class="prev-next-title">Sufficient Statistics</p>
       </div>
     </a>
@@ -681,7 +687,7 @@ x=(I-C)^{-1}y.
        href="12_general.html"
        title="next page">
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">下一页</p>
         <p class="prev-next-title">General</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
@@ -698,7 +704,7 @@ x=(I-C)^{-1}y.
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
+    <i class="fa-solid fa-list"></i> 目录
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
@@ -730,7 +736,7 @@ x=(I-C)^{-1}y.
   <div class="footer-item">
 
 <p class="component-author">
-By The Jupyter Book community
+作者： The Jupyter Book community
 </p>
 
   </div>
