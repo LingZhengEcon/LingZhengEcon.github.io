@@ -108,8 +108,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-i-am-thrilled-to-join-yanhui-wu-s-group-as-research-assistance-working-at-hku-business-school-shenzhen-campus",
-          title: 'I am thrilled to join Yanhui Wu’s group as research assistance, working at...',
+            },},{id: "news-i-am-thrilled-to-join-yanhui-wu-s-group-as-research-assistant-working-at-hku-business-school-shenzhen-campus",
+          title: 'I am thrilled to join Yanhui Wu’s group as research assistant, working at...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
