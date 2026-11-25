@@ -295,9 +295,6 @@ _styles: |
       <section class="goods-section" id="templates">
         <h2>Templates</h2>
         <ul class="goods-list goods-list--compact">
-          <li class="goods-item goods-item--pending"><strong>Lecture notes template</strong><span class="goods-status">Coming soon</span></li>
-          <li class="goods-item goods-item--pending"><strong>Beamer template</strong><span class="goods-status">Coming soon</span></li>
-          <li class="goods-item goods-item--pending"><strong>Working paper template</strong><span class="goods-status">Coming soon</span></li>
           <li class="goods-item"><a href="https://hargaden.com/enda/nokia-3210-beamer-theme/">Nokia-style Beamer Theme</a><p>A playful beamer template with a memorable visual system.</p></li>
         </ul>
       </section>

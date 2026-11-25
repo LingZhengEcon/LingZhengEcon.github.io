@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2026-03-16
+date: 2026-11-25
 inline: true
 ---
 
-I am thrilled to begin my Master's studies at the Chinese University of Hong Kong and Northwestern University's DMDP program in August!
+I am thrilled to join Yanhui Wu's group as research assistance, working at HKU business school, Shenzhen Campus.

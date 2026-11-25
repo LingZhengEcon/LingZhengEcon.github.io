@@ -10,4 +10,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   bind("timeline-toggle", "timeline-box");
   bind("tldr-toggle", "tldr-box");
+  document.querySelectorAll(".pre-toggle").forEach(function (btn) {
+    function toggle() {
+      var box = document.getElementById(btn.getAttribute("aria-controls"));
+      if (box) btn.setAttribute("aria-expanded", String(box.classList.toggle("open")));
+    }
+    btn.addEventListener("click", toggle);
+    btn.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        toggle();
+      }
+    });
+  });
 });

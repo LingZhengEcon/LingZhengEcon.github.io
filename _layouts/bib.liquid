@@ -201,6 +201,9 @@
       {% if entry.timeline %}
         <a class="timeline-toggle btn btn-sm z-depth-0" role="button">Timeline</a>
       {% endif %}
+      {% if entry.presentations %}
+        <a class="pre-toggle btn btn-sm z-depth-0" role="button" tabindex="0" aria-expanded="false" aria-controls="pre-{{ entry.key }}">Pre</a>
+      {% endif %}
       {% if entry.tldr %}
         <a class="tldr-toggle btn btn-sm z-depth-0" role="button">TLDR</a>
       {% endif %}
@@ -380,6 +383,12 @@
       <!-- Hidden abstract block -->
       <div class="abstract hidden">
         <p>{{ entry.abstract }}</p>
+      </div>
+    {% endif %}
+
+    {% if entry.presentations %}
+      <div id="pre-{{ entry.key }}" class="pre-box hidden">
+        <p>{{ entry.presentations }}</p>
       </div>
     {% endif %}
 
