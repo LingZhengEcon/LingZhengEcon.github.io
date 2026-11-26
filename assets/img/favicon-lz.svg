@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Ling Zheng</title>
+  <rect width="64" height="64" rx="14" fill="#f5f1e8"/>
+  <g fill="#292e2b">
+    <path d="M10 16h15v3h-4v26h8l2-7h3l-1 10H10v-3h4V19h-4z"/>
+    <path d="M34 16h21v3L39 45h10l3-7h3l-1 10H33v-3l16-26h-9l-3 7h-3z"/>
+  </g>
+</svg>
